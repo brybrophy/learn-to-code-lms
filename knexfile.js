@@ -3,12 +3,12 @@
 module.exports = {
   development: {
     client: 'pg',
-    connection: 'postgres://localhost/workflow_dev'
+    connection: 'postgres://localhost/ltc_dev'
   },
 
   test: {
     client: 'pg',
-    connection: 'postgres://localhost/workflow_test'
+    connection: 'postgres://localhost/ltc_test'
   },
 
   production: {
