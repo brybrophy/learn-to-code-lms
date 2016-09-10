@@ -1,4 +1,6 @@
 node_modules
 npm-debug.log
 public
+pg
+.DS_Store
 .ENV
