@@ -1,83 +1,38 @@
-# with-react-material
+# Learn To Code
 
-Ryan Sobol's React and Material skeleton for Brunch
+### What problems does it solve and how does it solve them?
 
-## Dependencies
+After teach a few of the Learn To Code Seattle classes, I saw an opportunity to improve the learning experience for the students, while also improving the teaching experience for the instructor. I decided to revamp the lessons and translate them from slide deck presentations to articles in a learning managment system. 
 
-Install the [Brunch](http://brunch.io) package globally with NPM.
+I added text areas with text highlighting, indentation, and warnings so that students can write all of their code without leaving the application. I connected the student's code snippets to a code evaluator, so that the can see their code being run in real time. All of their code is auto-saved to a postgres database so that it is always there when they want to review it.
 
-```shell
-npm install -g brunch
-```
+This makes both learning and teaching much more streamlined.
 
-## Usage
+### Who has this problem?
 
-Create a new React application based on this Brunch skeleton and install its dependencies.
+Learn To Code is currently geared towards the intro classes and students. It is a great tool for someone that knows little to nothing about web development. In the future, I would like to incorporate advanced lessons, and a social aspect so that students and instructors can connect more easily.
 
-```shell
-brunch new path/to/app --skeleton ryansobol/with-react-material
-```
+### What web APIs does it use?
 
-The application's code lives in the `app` directory.
+* The replit-client API for JavaScript evaluation
+* The Cloud9 Ace Editor API for syntax highlighting, indentation, and code warnings.
+* The Meetup API for Oauth and event registration.
 
-```shell
-la app
-```
+### What technologies does it use?
 
-Static files are placed in the `app/assets` directory and are copied to the `public` directory on build.
-
-```shell
-la app/assets
-```
-
-React components are placed in the `app/components` directory and are combined into the `public/app.js` file on build.
-
-**NOTE:** Each React component lives in a module so can be shared with other modules using [ES6 module](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/) syntax.
-
-```shell
-la app/components
-```
-
-CSS stylesheets are placed in the `app/styles` directory and are combined into the `public/app.css` file on build.
-
-```shell
-la app/styles
-```
-
-On each build, the application's files are saved to the `public` directory and served by the HTTP server.
-
-```shell
-la public
-```
-
-Watch the project for changes and launch an HTTP server.
-
-**NOTE:** Press `Ctrl + C` to quit.
-
-```shell
-npm start
-```
-
-In a new Terminal tab, navigate back the the project directory.
-
-```shell
-cd path/to/app
-```
-
-Take a look at the `public` directory to see what Brunch created.
-
-```shell
-la public
-```
-
-Open the application in your default browser.
-
-```shell
-open http://localhost:8000/
-```
-
-## Resources
-
-- [Brunch](http://brunch.io)
-- [Material-UI](http://www.material-ui.com/)
-- [React](https://facebook.github.io/react/)
+* Babel
+* Brunch
+* CSS3
+* Express
+* Heroku
+* HTML5
+* Joi
+* JS (ES6/2015)
+* JSX
+* Knex
+* Material-UI
+* Node.js
+* Postgresql
+* React
+* Redux
+* SASS
