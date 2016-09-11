@@ -28,9 +28,12 @@ switch (app.get('env')) {
   default:
 }
 
+app.use(bodyParser.json());
+app.use(cookieParser());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
-// CSRF protection
+//CSRF protection
 app.use('/api', (req, res, next) => {
   if (/json/.test(req.get('Accept'))) {
     return next();
@@ -39,8 +42,9 @@ app.use('/api', (req, res, next) => {
   res.sendStatus(406);
 });
 
-app.use(bodyParser.json());
-app.use(cookieParser());
+const users = require('./routes/users');
+
+app.use(users);
 
 app.use((_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
