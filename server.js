@@ -44,7 +44,7 @@ app.use('/api', (req, res, next) => {
 
 const users = require('./routes/users');
 
-app.use(users);
+app.use('/api', users);
 
 app.use((_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));

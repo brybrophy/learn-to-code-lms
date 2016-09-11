@@ -11,7 +11,7 @@ const { camelizeKeys, decamelizeKeys } = require('humps');
 const ev = require('express-validation');
 // const validations = require('../validations/users');
 
-router.get('/api/users/:id', (req, res, next) => {
+router.get('/users/:id', (req, res, next) => {
   const { id } = req.params;
 
   return knex('users')
@@ -23,6 +23,7 @@ router.get('/api/users/:id', (req, res, next) => {
       }
 
       const user = camelizeKeys(result);
+
       delete user.createdAt;
       delete user.updatedAt;
       res.send(user);
@@ -32,7 +33,7 @@ router.get('/api/users/:id', (req, res, next) => {
     });
 });
 
-router.post('/api/users', (req, res, next) => {
+router.post('/users', (req, res, next) => {
   const { name, email, bio, avatarUrl } = req.body;
 
   knex('users')
@@ -49,6 +50,7 @@ router.post('/api/users', (req, res, next) => {
     .then((row) => knex('users').insert(row, '*'))
     .then((results) => {
       const newUser = camelizeKeys(results[0]);
+
       delete newUser.createdAt;
       delete newUser.updatedAt;
 
@@ -56,7 +58,7 @@ router.post('/api/users', (req, res, next) => {
     })
     .catch((err) => {
       next(err);
-  });
+    });
 });
 
 module.exports = router;
