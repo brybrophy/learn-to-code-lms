@@ -76,7 +76,7 @@ suite('Users Migration', () => {
           assert.deepEqual(
             actual[column],
             expected[column],
-            `The ${column} columns are not the same.`
+            `The columns are not the same.`
           );
         }
 

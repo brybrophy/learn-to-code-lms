@@ -7,7 +7,7 @@ const { suite, test } = require('mocha');
 const knex = require('../knex');
 
 
-suite('Lessons Migration', () => {
+suite('Snippets Migration', () => {
   before((done) => { // eslint-disable-line no-undef
     knex.migrate.latest()
       .then(() => {
@@ -18,22 +18,29 @@ suite('Lessons Migration', () => {
       });
   });
 
-  test('Lessons columns migrate', (done) => {
-    knex('lessons').columnInfo()
+  test('Snippets columns migrate', (done) => {
+    knex('snippets').columnInfo()
       .then((actual) => {
         const expected = {
           id: {
             type: 'integer',
             maxLength: null,
             nullable: false,
-            defaultValue: 'nextval(\'lessons_id_seq\'::regclass)'
+            defaultValue: 'nextval(\'snippets_id_seq\'::regclass)'
           },
 
-          user_id: {
+          lesson_id: {
             type: 'integer',
             maxLength: null,
             nullable: false,
             defaultValue: null
+          },
+
+          code: {
+            type: 'text',
+            maxLength: null,
+            nullable: false,
+            defaultValue: '\'\'::text'
           },
 
           type: {
