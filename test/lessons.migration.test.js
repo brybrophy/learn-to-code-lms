@@ -6,7 +6,6 @@ const assert = require('chai').assert;
 const { suite, test } = require('mocha');
 const knex = require('../knex');
 
-
 suite('Lessons Migration', () => {
   before((done) => { // eslint-disable-line no-undef
     knex.migrate.latest()
@@ -62,7 +61,7 @@ suite('Lessons Migration', () => {
           assert.deepEqual(
             actual[column],
             expected[column],
-            `The columns are not the same.`
+            'The columns are not the same.'
           );
         }
 
