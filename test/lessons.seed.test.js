@@ -6,7 +6,7 @@ const { assert } = require('chai');
 const { suite, test } = require('mocha');
 const knex = require('../knex');
 
-suite('Identities Seeds', () => {
+suite('Lessons Seeds', () => {
   before((done) => { // eslint-disable-line no-undef
     knex.migrate.latest()
       .then(() => {
@@ -27,15 +27,13 @@ suite('Identities Seeds', () => {
       });
   });
 
-  test('Identities rows seed', (done) => {
-    knex('identities').orderBy('id', 'ASC')
+  test('Lessons rows seed', (done) => {
+    knex('lessons').orderBy('id', 'ASC')
       .then((actual) => {
         const expected = [{
           id: 1,
           user_id: 1,
-          provider_id: 'abc123',
-          provider_token: 'rockin_robin',
-          provider_type: 'meetup',
+          type: 'javascript',
           created_at: new Date('2016-07-23 14:26:16 UTC'),
           updated_at: new Date('2016-07-23 14:26:16 UTC')
         }];

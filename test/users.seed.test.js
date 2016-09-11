@@ -6,7 +6,7 @@ const { assert } = require('chai');
 const { suite, test } = require('mocha');
 const knex = require('../knex');
 
-suite('Seeds', () => {
+suite('Users Seeds', () => {
   before((done) => { // eslint-disable-line no-undef
     knex.migrate.latest()
       .then(() => {
