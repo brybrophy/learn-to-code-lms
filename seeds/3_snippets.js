@@ -2,11 +2,12 @@
 'use strict';
 
 exports.seed = function(knex) {
-  return knex('lessons').del()
+  return knex('snippets').del()
     .then(() => {
-      return knex('lessons').insert([{
+      return knex('snippets').insert([{
         id: 1,
-        user_id: 1,
+        lesson_id: 1,
+        code: '["sample code here"]',
         type: 'javascript',
         created_at: new Date('2016-07-23 14:26:16 UTC'),
         updated_at: new Date('2016-07-23 14:26:16 UTC')
@@ -14,7 +15,7 @@ exports.seed = function(knex) {
     })
     .then(() => {
       return knex.raw(
-        "SELECT setval('lessons_id_seq', (SELECT MAX(id) FROM lessons));"
+        "SELECT setval('snippets_id_seq', (SELECT MAX(id) FROM snippets));"
       );
     });
 };

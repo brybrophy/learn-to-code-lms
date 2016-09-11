@@ -7,7 +7,7 @@ const { assert } = require('chai');
 const { suite, test } = require('mocha');
 const knex = require('../knex');
 
-suite('Users Seeds', () => {
+suite('Snippets Seeds', () => {
   before((done) => { // eslint-disable-line no-undef
     knex.migrate.latest()
       .then(() => {
@@ -28,15 +28,14 @@ suite('Users Seeds', () => {
       });
   });
 
-  test('Users rows seed', (done) => {
-    knex('users').orderBy('id', 'ASC')
+  test('Snippets rows seed', (done) => {
+    knex('snippets').orderBy('id', 'ASC')
       .then((actual) => {
         const expected = [{
           id: 1,
-          name: 'Bryan Brophy',
-          email: 'brybrophy@gmail.com',
-          bio: 'The man with the plan.',
-          avatar_url: 'https://a248.e.akamai.net/secure.meetupstatic.com/photos/member/8/1/d/9/highres_19053241.jpeg', // eslint-disable-line max-len
+          lesson_id: 1,
+          code: '["sample code here"]',
+          type: 'javascript',
           created_at: new Date('2016-07-23 14:26:16 UTC'),
           updated_at: new Date('2016-07-23 14:26:16 UTC')
         }];

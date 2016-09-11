@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 'use strict';
 
 process.env.NODE_ENV = 'test';
