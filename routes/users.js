@@ -9,7 +9,7 @@ const boom = require('boom');
 const { camelizeKeys, decamelizeKeys } = require('humps');
 
 const ev = require('express-validation');
-// const validations = require('../validations/users');
+const validations = require('../validations/users');
 
 router.get('/users/:id', (req, res, next) => {
   const { id } = req.params;
@@ -33,7 +33,7 @@ router.get('/users/:id', (req, res, next) => {
     });
 });
 
-router.post('/users', (req, res, next) => {
+router.post('/users', ev(validations.post), (req, res, next) => {
   const { name, email, bio, avatarUrl } = req.body;
 
   knex('users')
