@@ -8,20 +8,21 @@ import React from 'react';
 const App = React.createClass({
   render() {
     const styles = {
-      appBar: {
-        color: '#444444',
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center'
-      },
-
       logo: {
-        padding: '20px 0 0 50px'
+        height: '40px',
+        margin: '20px 0 0 50px'
       },
 
       menu: {
         color: '#444444',
         padding: '25px 60px 0 0'
+      },
+
+      nav: {
+        color: '#444444',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center'
       },
 
       tab: {
@@ -31,19 +32,15 @@ const App = React.createClass({
 
       tabs: {
         flex: '1 auto',
-        margin: '12px 23vw 0 0'
+        margin: '12px 25vw'
       }
     };
 
     return <div>
-      <AppBar
-        className="flex-container"
-        iconElementLeft={<NavLogo />}
-        iconStyleLeft={styles.logo}
-        iconStyleRight={styles.menu}
-        style={styles.appBar}
-        zDepth={0}
-      >
+      <nav style={styles.nav}>
+
+        <NavLogo style={styles.logo} />
+        
         <Tabs
           inkBarStyle={{ marginLeft: '7%', width: '5%' }}
           style={styles.tabs}
@@ -78,7 +75,7 @@ const App = React.createClass({
 
         <Menu style={styles.menu} />
 
-      </AppBar>
+      </nav>
     </div>
   }
 });
