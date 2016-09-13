@@ -27,6 +27,21 @@ body {
   margin: 0;
 }
 
+.eventHeader {
+  color: #444444;
+  font-family: 'MontserratLight';
+}
+
+.getStarted {
+  background-color: #444444;
+  border-radius: 5px;
+  color: #FFFFFF;
+  font-family: 'MontserratHairline';
+  letter-spacing: 3px;
+  padding: 18px 75px;
+  text-decoration: none;
+}
+
 .heroLogoLg {
   display: flex;
 }
@@ -48,6 +63,15 @@ body {
   margin: 0 0 0 8.77%;
 }
 
+.mainAbout {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 80vh;
+  justify-content: space-between;
+  margin: 0 0 0 8.77%;
+}
+
 .mainContent {
   width: 100%;
 }
@@ -57,6 +81,16 @@ body {
   font-family: 'MontserratHairline';
   font-size: 5rem;
   line-height: 40%;
+}
+
+.mainParagraph {
+  color: #444444;
+  font-family: 'MontserratLight';
+  font-size: 1rem;
+  letter-spacing: 2px;
+  line-height: 150%;
+  margin-bottom: 60px;
+  width: 80%;
 }
 
 .mainSubHeader {
@@ -77,7 +111,11 @@ body {
 
 .menu {
   color: #444444;
-  padding: 25px 60px 0 0;
+  margin: 25px 60px 0 0;
+}
+
+.menu:hover {
+  cursor: pointer;
 }
 
 .nav {
@@ -85,6 +123,15 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.navLogo {
+    height: 30px;
+    margin: 20px 0 0 50px;
+}
+
+.navLogo:hover {
+  cursor: pointer;
 }
 
 .play {
@@ -96,6 +143,10 @@ body {
   height: 90px;
   justify-content: center;
   width: 90px;
+}
+
+.play:hover {
+  cursor: pointer;
 }
 
 .playArrow {
@@ -174,10 +225,6 @@ body {
     width: 80px;
   }
 
-  .menu {
-    float: right;
-  }
-
   .main {
     flex-direction: column;
     margin: 0 0 0 10%;
@@ -217,12 +264,25 @@ body {
   }
 
   .main {
-    margin: 0 0 0 25%;
+    margin: 0 5% 0 0;
+    text-align: center;
+  }
+
+  .play {
+    margin: 0 0 10px 39%;
+  }
+
+  .playContainer {
+    flex-direction: column;
+  }
+
+  .playLabel {
+    margin-right: 10%;
   }
 }
 
 @media (max-width: 450px) {
-  .main {
-    margin: 0 0 0 15%;
+  .play {
+    margin: 0 0 10px 35%;
   }
 }
