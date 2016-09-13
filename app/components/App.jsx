@@ -2,48 +2,25 @@ import { Tab, Tabs } from 'material-ui/Tabs';
 import AppBar from 'material-ui/AppBar';
 import Menu from 'material-ui/svg-icons/navigation/menu';
 import NavLogo from 'components/NavLogo';
+import Play from 'material-ui/svg-icons/av/play-circle-filled';
 import React from 'react';
 // import SwipeableViews from 'react-swipeable-views';
 
 const App = React.createClass({
   render() {
     const styles = {
-      logo: {
-        height: '40px',
-        margin: '20px 0 0 50px'
-      },
-
-      menu: {
-        color: '#444444',
-        padding: '25px 60px 0 0'
-      },
-
-      nav: {
-        color: '#444444',
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center'
-      },
-
       tab: {
         backgroundColor: '#FFFFFF',
         color: '#444444'
-      },
-
-      tabs: {
-        flex: '1 auto',
-        margin: '12px 25vw'
       }
-    };
-
+    }
     return <div>
-      <nav style={styles.nav}>
+      <nav className="nav">
+        <NavLogo />
 
-        <NavLogo style={styles.logo} />
-        
         <Tabs
           inkBarStyle={{ marginLeft: '7%', width: '5%' }}
-          style={styles.tabs}
+          className="tabs"
           tabItemContainerStyle={{ backgroundColor: 'none' }}
         >
           <Tab
@@ -73,9 +50,30 @@ const App = React.createClass({
           />
         </Tabs>
 
-        <Menu style={styles.menu} />
-
+        <Menu className="menu" />
       </nav>
+      <main className="main">
+        <section className="mainContent">
+          <h1 className="mainHeader">Learn</h1>
+          <h1 className="mainHeader">To Code</h1>
+          <p className="mainSubHeader">Welcome to ltc</p>
+          <p className="mainText">A complete set of tools to learn</p>
+          <p className="mainText">the basics of web development</p>
+        </section>
+
+        <section className="mainContent">
+          <img src="/images/hero-logo.png"></img>
+        </section>
+
+        <section className="mainContent">
+          <div className="playContainer">
+            <Play className="play" />
+            <div style={{ flex: '1' }}>
+              <p className="playLabel">Tour <br />Curriculum</p>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
   }
 });

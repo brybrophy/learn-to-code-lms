@@ -1,0 +1,102 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url('montserrat/Montserrat-Regular.otf');
+}
+
+@font-face {
+  font-family: 'MontserratBold';
+  src: url('montserrat/Montserrat-Bold.otf');
+}
+
+@font-face {
+  font-family: 'MontserratLight';
+  src: url('montserrat/Montserrat-Light.otf');
+}
+
+@font-face {
+  font-family: 'MontserratHairline';
+  src: url('montserrat/Montserrat-Hairline.otf');
+}
+
+body {
+  margin: 0;
+}
+
+.main {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  justify-content: center;
+  margin: 0 0 0 8.77%;
+}
+
+.mainContent {
+  margin-top: -75px;
+  width: 100%;
+}
+
+.mainHeader {
+  color: #444444;
+  font-family: 'MontserratHairline';
+  font-size: 5rem;
+  line-height: 40%;
+}
+
+.mainSubHeader {
+  color: #444444;
+  font-family: 'MontserratLight';
+  font-size: 1.2rem;
+  letter-spacing: 4px;
+  margin-left: 10px;
+}
+
+.mainText {
+  color: #999999;
+  font-family: 'MontserratLight';
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  margin-left: 10px;
+}
+
+.menu {
+  color: #444444;
+  padding: 25px 60px 0 0;
+}
+
+.nav {
+  color: #444444;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.play {
+  height: 90px;
+  width: 90px;
+}
+
+.playContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.playLabel {
+  color: #999999;
+  font-family: 'MontserratLight';
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  margin: 0 0 10px 10px;
+}
+
+.tab {
+  background-color: #FFFFFF;
+  color: #444444;
+}
+
+.tabs {
+  flex: 1 auto;
+  margin: 12px 25vw;
+}
