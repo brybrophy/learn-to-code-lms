@@ -83,6 +83,13 @@ body {
   text-decoration: none;
 }
 
+.getStarted:hover {
+  background-color: #FFFFFF;
+  border: 2px solid #444444;
+  color: #444444;
+  font-family: 'MontserratLight';
+}
+
 .heroLogoLg {
   display: flex;
 }
@@ -226,6 +233,11 @@ body {
   margin: 5px 0 10px 0;
   padding: 5px 10px;
   text-decoration: none;
+}
+
+.registerLink:hover {
+  background-color: #444444;
+  color: #FFFFFF;
 }
 
 .tab {
