@@ -27,9 +27,50 @@ body {
   margin: 0;
 }
 
+//.aboutHeader is below .mainHeader
+
+.event {
+  line-height: 60%;
+  margin: 60px 10px 30px 0;
+}
+
+.event::after {
+  content: "";
+  background: #999999;
+  margin-top: 20px;
+  margin-left: -10px;
+  position: absolute;
+  height: 1px;
+  width: 25%;
+}
+
 .eventHeader {
   color: #444444;
+  font-family: 'Montserrat';
+  margin-bottom: 0;
+}
+
+.eventInfo {
+  color: #666666;
   font-family: 'MontserratLight';
+}
+
+.eventLink {
+  color: #444444;
+  font-family: 'Montserrat';
+  text-decoration: none;
+}
+
+.events {
+  margin-left: 16%;
+  margin-top: 10%;
+}
+
+.eventsHeader {
+  color: #444444;
+  font-family: 'MontserratLight';
+  font-size: 2rem;
+  letter-spacing: 4px;
 }
 
 .getStarted {
@@ -68,7 +109,7 @@ body {
   display: flex;
   flex-direction: row;
   height: 80vh;
-  justify-content: space-between;
+  justify-content: center;
   margin: 0 0 0 8.77%;
 }
 
@@ -81,6 +122,12 @@ body {
   font-family: 'MontserratHairline';
   font-size: 5rem;
   line-height: 40%;
+}
+
+// Keep .aboutHeader below .mainHeader
+.aboutHeader {
+  line-height: 100%;
+  margin-bottom: 30px;
 }
 
 .mainParagraph {
@@ -169,6 +216,18 @@ body {
   margin-top: 20px;
 }
 
+.registerLink {
+  border: 1px solid #444444;
+  border-radius: 2px;
+  color: #444444;
+  display: inline-block;
+  font-family: 'MontserratUltraLight';
+  font-size: .8rem;
+  margin: 5px 0 10px 0;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+
 .tab {
   background-color: #FFFFFF;
   color: #444444;
@@ -215,8 +274,27 @@ body {
 }
 
 @media (max-width: 900px) {
+  .event::after {
+    left: 27%;
+    width: 50%;
+  }
+
+  .events {
+    margin-left: 0;
+  }
+
   .main {
     margin: 0 0 0 8%;
+  }
+
+  .mainAbout {
+    flex-direction: column;
+    margin: 33% 0 0 0;
+    text-align: center;
+  }
+
+  .mainParagraph {
+    margin-left: 10%;
   }
 }
 
@@ -268,6 +346,10 @@ body {
     text-align: center;
   }
 
+  .mainAbout {
+    margin: 45% 0 0 0;
+  }
+
   .play {
     margin: 0 0 10px 39%;
   }
@@ -282,6 +364,11 @@ body {
 }
 
 @media (max-width: 450px) {
+  .mainAbout {
+    margin: 55% 0 0 0;
+  }
+
+
   .play {
     margin: 0 0 10px 35%;
   }
