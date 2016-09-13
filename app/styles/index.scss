@@ -14,6 +14,11 @@
 }
 
 @font-face {
+  font-family: 'MontserratUltraLight';
+  src: url('montserrat/Montserrat-UltraLight.otf');
+}
+
+@font-face {
   font-family: 'MontserratHairline';
   src: url('montserrat/Montserrat-Hairline.otf');
 }
@@ -22,17 +27,28 @@ body {
   margin: 0;
 }
 
+.heroLogoLg {
+  display: flex;
+}
+
+.heroLogoSm {
+  display: none;
+}
+
+.hideLg {
+  display: none;
+}
+
 .main {
   align-items: center;
   display: flex;
   flex-direction: row;
-  height: 100vh;
+  height: 90vh;
   justify-content: center;
   margin: 0 0 0 8.77%;
 }
 
 .mainContent {
-  margin-top: -75px;
   width: 100%;
 }
 
@@ -72,8 +88,18 @@ body {
 }
 
 .play {
+  align-items: center;
+  background-color: #222222;
+  border-radius: 100px;
+  display: flex;
+  flex-direction: row;
   height: 90px;
+  justify-content: center;
   width: 90px;
+}
+
+.playArrow {
+  color: '#FFFFFF'
 }
 
 .playContainer {
@@ -88,7 +114,8 @@ body {
   font-family: 'MontserratLight';
   font-size: 1.4rem;
   letter-spacing: 2px;
-  margin: 0 0 10px 10px;
+  margin-left: 10px;
+  margin-top: 20px;
 }
 
 .tab {
@@ -99,4 +126,103 @@ body {
 .tabs {
   flex: 1 auto;
   margin: 12px 25vw;
+}
+
+@media (max-width: 1215px) {
+  .heroLogoLg {
+    display: none;
+  }
+
+  .heroLogoSm {
+    display: inline-block;
+    height: 100px;
+  }
+
+  .hideLg {
+    display: inline-block;
+    margin-top: 30px;
+  }
+
+  .hideSm {
+    display: none;
+  }
+
+  .inlineSm {
+    bottom: 40px;
+    display: inline-block;
+    position: relative;
+  }
+
+  .main {
+    flex-direction: column;
+    margin: 0 0 0 18%;
+  }
+
+  .nav {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 900px) {
+  .main {
+    margin: 0 0 0 8%;
+  }
+}
+
+@media (max-width: 750px) {
+  .bracket {
+    width: 80px;
+  }
+
+  .menu {
+    float: right;
+  }
+
+  .main {
+    flex-direction: column;
+    margin: 0 0 0 10%;
+  }
+
+  .mainHeader {
+    font-family: 'MontserratUltraLight';
+    font-size: 3.2rem;
+  }
+
+  .mainSubHeader {
+    font-size: 1.1rem;
+  }
+
+  .mainText {
+    font-size: 1rem;
+  }
+
+  .play {
+    height: 70px;
+    width: 70px;
+  }
+
+  .playContainer {
+    margin-left: 30px;
+  }
+
+  .playLabel {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .bracket {
+    display: none;
+  }
+
+  .main {
+    margin: 0 0 0 25%;
+  }
+}
+
+@media (max-width: 450px) {
+  .main {
+    margin: 0 0 0 15%;
+  }
 }
