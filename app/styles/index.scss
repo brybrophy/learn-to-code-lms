@@ -29,6 +29,13 @@ body {
 
 //.aboutHeader is below .mainHeader
 
+.cssHero {
+  background-image: url('/gifs/css.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .event {
   line-height: 60%;
   margin: 60px 10px 30px 0;
@@ -90,6 +97,13 @@ body {
   font-family: 'MontserratLight';
 }
 
+.gitHero {
+  background-image: url('/gifs/git.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .heroLogoLg {
   display: flex;
 }
@@ -98,8 +112,47 @@ body {
   display: none;
 }
 
+.heroImg {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 60px 0;
+  width: 100%;
+}
+
+.heroText {
+  color: #FFFFFF;
+  display: inline-block;
+  font-family: 'MontserratUltraLight';
+  font-size: 2em;
+  margin-right: 20px;
+}
+
+.heroText::first-letter {
+  color: #FFFFFF;
+  display: inline-block;
+  font-family: 'MontserratUltraLight';
+  font-size: 4em;
+}
+
 .hideLg {
   display: none;
+}
+
+.htmlHero {
+  background-image: url('/gifs/html.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.jsHero {
+  background-image: url('/gifs/javascript.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .main {
@@ -131,7 +184,7 @@ body {
   line-height: 40%;
 }
 
-// Keep .aboutHeader below .mainHeader
+// keep .aboutHeader below .mainHeader
 .aboutHeader {
   line-height: 100%;
   margin-bottom: 30px;
@@ -315,6 +368,38 @@ body {
     width: 80px;
   }
 
+  .cssHeroText:first-child {
+    margin-left: 50px;
+  }
+
+  .cssHeroText:nth-child(2) {
+    margin-right: 30px;
+  }
+
+// .gitHero is below .heroImg
+
+  .heroText {
+    margin: -10px 0;
+  }
+
+  .htmlHeroText:first-child {
+    margin-right: 35px;
+  }
+
+  .htmlHeroText:nth-child(2) {
+    margin-right: 65px;
+  }
+
+  .heroImg {
+    flex-direction: column;
+    padding: 0;
+  }
+
+// keep .gitHero below .heroImg
+  .gitHero {
+    padding: 200px 0;
+  }
+
   .main {
     flex-direction: column;
     margin: 0 0 0 10%;
@@ -379,7 +464,6 @@ body {
   .mainAbout {
     margin: 55% 0 0 0;
   }
-
 
   .play {
     margin: 0 0 10px 35%;
