@@ -1,9 +1,39 @@
 import { Tab, Tabs } from 'material-ui/Tabs';
-import Menu from 'material-ui/svg-icons/navigation/menu';
 import NavLogo from 'components/NavLogo';
 import React from 'react';
 
 const Nav = React.createClass({
+  getInitialState() {
+    return {
+      slideIndex: 0
+    };
+  },
+
+  handleTouchTapMenu() {
+    const menu = document.getElementsByClassName('menu')[0];
+    const overlay = document.getElementById('overlay');
+    const sideMenu = document.getElementsByClassName('sideMenu')[0];
+    const sideMenuWrap = document.getElementsByClassName('sideMenuWrapper')[0];
+
+    if (menu.className === 'menu open') {
+      menu.className = 'menu';
+      sideMenu.style.left = '500px';
+      sideMenuWrap.style.borderLeft = '';
+    }
+
+    else {
+      menu.className += ' open';
+      sideMenu.style.left = '0';
+      sideMenuWrap.style.borderLeft = '100vw solid rgba(34, 34, 34, 0.75)';
+    }
+
+  },
+
+  handleTouchTapSideNav(event) {
+    const index = parseInt(event.target.id);
+    return this.setState({ slideIndex: index });
+  },
+
   render() {
     const styles = {
       tab: {
@@ -18,7 +48,9 @@ const Nav = React.createClass({
       <Tabs
         inkBarStyle={{ marginLeft: '6%', width: '5%' }}
         className="tabs hideSm"
+        onChange={this.handleTouchTapNav}
         tabItemContainerStyle={{ backgroundColor: 'none' }}
+        value={this.state.slideIndex}
       >
         <Tab
           label="HOME"
@@ -52,7 +84,59 @@ const Nav = React.createClass({
         />
       </Tabs>
 
-      <Menu className="menu" />
+      <div
+        className="menu"
+        id="menu"
+        onTouchTap={this.handleTouchTapMenu}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div className="sideMenuWrapper">
+        <aside className="sideMenu">
+          <a
+            className="sideNav"
+          >SIGNUP / LOGIN</a>
+
+          <a
+            className="sideNav"
+            onTouchTap={this.handleTouchTapSideNav}
+            id="0"
+          >HOME</a>
+
+          <a
+            className="sideNav"
+            id="1"
+            onTouchTap={this.handleTouchTapSideNav}
+          >HTML</a>
+
+          <a
+            className="sideNav"
+            id="2"
+            onTouchTap={this.handleTouchTapSideNav}
+          >CSS</a>
+
+          <a
+            className="sideNav"
+            id="3"
+            onTouchTap={this.handleTouchTapSideNav}
+          >JAVASCRIPT</a>
+
+          <a
+            className="sideNav"
+            id="4"
+            onTouchTap={this.handleTouchTapSideNav}
+          >GIT</a>
+
+          <a
+            className="sideNav"
+            id="5"
+            onTouchTap={this.handleTouchTapSideNav}
+          >ABOUT</a>
+        </aside>
+      </div>
     </nav>;
   }
 });
