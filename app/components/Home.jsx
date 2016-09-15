@@ -1,7 +1,7 @@
 import Play from 'material-ui/svg-icons/av/play-arrow';
 import React from 'react';
 
-const Landing = React.createClass({
+const Home = React.createClass({
   render() {
     return <main className="main">
       <section className="mainContent">
@@ -45,4 +45,4 @@ const Landing = React.createClass({
   }
 });
 
-export default Landing;
+export default Home;

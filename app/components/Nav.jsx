@@ -1,6 +1,16 @@
 import { Tab, Tabs } from 'material-ui/Tabs';
 import NavLogo from 'components/NavLogo';
 import React from 'react';
+import { browserHistory } from 'react-router';
+
+const pages = {
+  home: 0,
+  html: 1,
+  css: 2,
+  javascript: 3,
+  git: 4,
+  about: 5
+}
 
 const Nav = React.createClass({
   getInitialState() {
@@ -11,7 +21,6 @@ const Nav = React.createClass({
 
   handleTouchTapMenu() {
     const menu = document.getElementsByClassName('menu')[0];
-    const overlay = document.getElementById('overlay');
     const sideMenu = document.getElementsByClassName('sideMenu')[0];
     const sideMenuWrap = document.getElementsByClassName('sideMenuWrapper')[0];
 
@@ -31,7 +40,37 @@ const Nav = React.createClass({
 
   handleTouchTapSideNav(event) {
     const index = parseInt(event.target.id);
+    const menu = document.getElementsByClassName('menu')[0];
+    const sideMenu = document.getElementsByClassName('sideMenu')[0];
+    const sideMenuWrap = document.getElementsByClassName('sideMenuWrapper')[0];
+
+    for (const page in pages) {
+      if (index === 0) {
+        browserHistory.push(`/`);
+      }
+      else if (index === pages[page]) {
+        browserHistory.push(`/${page}`);
+      }
+    }
+
+    menu.className = 'menu';
+    sideMenu.style.left = '500px';
+    sideMenuWrap.style.borderLeft = '';
+
     return this.setState({ slideIndex: index });
+  },
+
+  handleTouchTapTabs(value) {
+    for (const page in pages) {
+      if (value === 0) {
+        browserHistory.push(`/`);
+      }
+      else if (value === pages[page]) {
+        browserHistory.push(`/${page}`);
+      }
+    }
+
+    return this.setState({ slideIndex: value });
   },
 
   render() {
@@ -48,7 +87,7 @@ const Nav = React.createClass({
       <Tabs
         inkBarStyle={{ marginLeft: '6%', width: '5%' }}
         className="tabs hideSm"
-        onChange={this.handleTouchTapNav}
+        onChange={this.handleTouchTapTabs}
         tabItemContainerStyle={{ backgroundColor: 'none' }}
         value={this.state.slideIndex}
       >

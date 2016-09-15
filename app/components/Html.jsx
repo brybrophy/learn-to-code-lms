@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 const Html = React.createClass({
   render() {
@@ -13,4 +14,4 @@ const Html = React.createClass({
   }
 });
 
-export default Html;
+export default withRouter(Html);
