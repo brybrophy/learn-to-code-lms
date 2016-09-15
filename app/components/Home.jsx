@@ -1,7 +1,12 @@
 import Play from 'material-ui/svg-icons/av/play-arrow';
 import React from 'react';
+import { browserHistory } from 'react-router';
 
 const Home = React.createClass({
+  handleTouchTap() {
+    browserHistory.push('/html');
+  },
+
   render() {
     return <main className="main">
       <section className="mainContent">
@@ -21,7 +26,7 @@ const Home = React.createClass({
       </section>
 
       <section className="mainContent hideSm">
-        <div className="playContainer">
+        <div className="playContainer" onTouchTap={this.handleTouchTap}>
           <div className="play">
             <Play style={{ color: '#FFFFFF' }} />
           </div>
@@ -32,7 +37,7 @@ const Home = React.createClass({
       </section>
 
       <section className="mainContent hideLg">
-        <div className="playContainer">
+        <div className="playContainer" onTouchTap={this.handleTouchTap}>
           <a className="play" href="#">
             <Play style={{ color: '#FFFFFF'}} />
           </a>

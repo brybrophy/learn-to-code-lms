@@ -305,19 +305,17 @@ body {
   width: 90px;
 }
 
-.play:hover {
-  cursor: pointer;
-}
-
 .playArrow {
   color: '#FFFFFF'
 }
 
 .playContainer {
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 100%;
+  z-index: 100000;
 }
 
 .playLabel {
@@ -354,7 +352,6 @@ body {
   text-align: center;
   transition: .4s ease-in-out;
   position: relative;
-  z-index: 900;
 }
 
 .sideMenuWrapper {
@@ -366,6 +363,7 @@ body {
   transition: .3s ease-in-out;
   transition-delay: .4s;
   width: 22%;
+  z-index: 999;
 }
 
 .sideNav {
@@ -406,7 +404,7 @@ body {
 
   .hideLg {
     display: inline-block;
-    margin-top: 30px;
+    // margin-top: 30px;
   }
 
   .hideSm {

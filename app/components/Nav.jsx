@@ -13,19 +13,13 @@ const pages = {
 }
 
 const Nav = React.createClass({
-  getInitialState() {
-    return {
-      slideIndex: 0
-    };
-  },
-
   handleTouchTapMenu() {
     const menu = document.getElementsByClassName('menu')[0];
     const sideMenu = document.getElementsByClassName('sideMenu')[0];
     const sideMenuWrap = document.getElementsByClassName('sideMenuWrapper')[0];
 
-    if (menu.className === 'menu open') {
-      menu.className = 'menu';
+    if (menu.className === 'menu hideLg open') {
+      menu.className = 'menu hideLg';
       sideMenu.style.left = '500px';
       sideMenuWrap.style.borderLeft = '';
     }
@@ -57,7 +51,7 @@ const Nav = React.createClass({
     sideMenu.style.left = '500px';
     sideMenuWrap.style.borderLeft = '';
 
-    return this.setState({ slideIndex: index });
+    return this.props.handleSideNavigation(index)
   },
 
   handleTouchTapTabs(value) {
@@ -70,7 +64,7 @@ const Nav = React.createClass({
       }
     }
 
-    return this.setState({ slideIndex: value });
+    return this.props.handleSideNavigation(value)
   },
 
   render() {
@@ -89,7 +83,7 @@ const Nav = React.createClass({
         className="tabs hideSm"
         onChange={this.handleTouchTapTabs}
         tabItemContainerStyle={{ backgroundColor: 'none' }}
-        value={this.state.slideIndex}
+        value={this.props.slideIndex}
       >
         <Tab
           label="HOME"
@@ -124,7 +118,7 @@ const Nav = React.createClass({
       </Tabs>
 
       <div
-        className="menu"
+        className="menu hideLg"
         id="menu"
         onTouchTap={this.handleTouchTapMenu}
       >
