@@ -9,8 +9,8 @@ const App = React.createClass({
     };
   },
 
-  handleNavigation(index) {
-    return this.setState({ slideIndex: index });
+  handleNavigation(value) {
+    return this.setState({ slideIndex: value });
   },
 
   render() {

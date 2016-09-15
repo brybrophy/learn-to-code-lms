@@ -1,3 +1,17 @@
+// Selectors listed alphabetically in order of:
+// Fonts,
+// Tags,
+// Classes,
+// ID's,
+// and Media Queries.
+//
+// If any selector needs to be placed out of
+// order, due to cascading, a comment is left
+// in it's place that points to it's location.
+// That selector is also paired with a comment
+// telling the developer that it needs to remain
+// below another selector in the document.
+
 @font-face {
   font-family: 'Montserrat';
   src: url('montserrat/Montserrat-Regular.otf');
@@ -6,6 +20,11 @@
 @font-face {
   font-family: 'MontserratBold';
   src: url('montserrat/Montserrat-Bold.otf');
+}
+
+@font-face {
+  font-family: 'MontserratHairline';
+  src: url('montserrat/Montserrat-Hairline.otf');
 }
 
 @font-face {
@@ -18,20 +37,75 @@
   src: url('montserrat/Montserrat-UltraLight.otf');
 }
 
-@font-face {
-  font-family: 'MontserratHairline';
-  src: url('montserrat/Montserrat-Hairline.otf');
-}
-
 body {
   margin: 0;
 }
 
+input:first-of-type {
+  margin-top: 10px;
+}
+
+input, .textarea, .profileInfo {
+  background-color: transparent;
+  border: none;
+  color: #444444;
+  font-family: 'Montserrat';
+  font-size: 1rem;
+  height: 20px;
+  margin-bottom: 40px;
+  width: 70%;
+}
+
+input, .textarea {
+  border-bottom: 1px solid #999999;
+}
+
+input:focus, .textarea:focus{
+    outline: none;
+    border-bottom: none;
+    box-shadow: 0 7px 6px -6px #47B4E0;
+    transition: .2s ease-in-out;
+}
+
+label {
+  color: #999999;
+  font-family: 'MontserratLight';
+  left: -40%;
+  position: relative;
+}
+
+label:first-of-type {
+  top: 10px;
+}
+
 //.aboutHeader is below .mainHeader
+
+.authBtnMeetup {
+  align-items: center;
+  background-color: #E0393E;
+  border-radius: 2px;
+  box-shadow: 2px 2px 14px 0px rgba(0,0,0,0.55);
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  height: 60px;
+  justify-content: space-between;
+  margin-top: 50px;
+  padding: 0 30px;
+  position: relative;
+  width: 190px;
+  z-index: 5000;
+}
+
+.authBtnMeetup:hover {
+  box-shadow: 6px 6px 18px 0px rgba(0,0,0,0.35);
+  transform: scale(1.02);
+  transition: .3s ease-in-out;
+}
 
 .avatar {
   align-items: center;
-  border: 3px solid #666666;
+  border: 2px solid #555555;
   border-radius: 100px;
   cursor: pointer;
   display: flex;
@@ -48,11 +122,44 @@ body {
   width: 65%;
 }
 
+.btnGroup {
+  margin-top: 30px;
+}
+
+.cancelBtn {
+  background-color: #444444;
+  border-radius: 5px;
+  color: #FFFFFF;
+  font-family: 'MontserratUltraLight';
+  letter-spacing: 3px;
+  padding: 5px 40px;
+  position: relative;
+  text-decoration: none;
+  transition: .5s ease-in-out;
+  z-index: 1100;
+}
+
+.cancelBtn:hover {
+  background-color: #FFFFFF;
+  border: 1px solid #444444;
+  color: #444444;
+  font-family: 'MontserratLight';
+  padding: 5px 39px;
+}
+
 .cssHero {
   background-image: url('/gifs/css.gif');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.editIcon {
+  cursor: pointer;
+  left: 200px;
+  position: relative;
+  transition: .5s ease-in-out;
+  z-index: 1100;
 }
 
 .event {
@@ -99,7 +206,7 @@ body {
   letter-spacing: 4px;
 }
 
-.getStarted {
+.getStartedBtn {
   background-color: #444444;
   border-radius: 5px;
   color: #FFFFFF;
@@ -178,7 +285,7 @@ body {
   align-items: center;
   display: flex;
   flex-direction: row;
-  height: 75vh;
+  height: 85vh;
   justify-content: center;
   margin: 0 0 0 8.77%;
 }
@@ -217,6 +324,22 @@ body {
   line-height: 150%;
   margin-bottom: 60px;
   width: 80%;
+}
+
+.mainProfile {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  justify-content: center;
+}
+
+.mainProfileHeader {
+  color: #444444;
+  font-family: 'MontserratLight';
+  font-size: 1.4rem;
+  letter-spacing: 4px;
+  line-height: 10%;
 }
 
 .mainSubHeader {
@@ -313,6 +436,8 @@ body {
   cursor: pointer;
 }
 
+// .nonEdit is below .profileGroup
+
 .play {
   align-items: center;
   background-color: #222222;
@@ -346,6 +471,28 @@ body {
   margin-top: 20px;
 }
 
+.profileGroup {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+}
+
+// keep .nonEdit below .profileGroup
+.nonEdit {
+  margin-top: 0;
+}
+
+.profileHero {
+  background-image: url('/gifs/profile.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 40px;
+  padding: 0;
+}
+
 .registerLink {
   border: 1px solid #444444;
   border-radius: 2px;
@@ -361,6 +508,28 @@ body {
 .registerLink:hover {
   background-color: #444444;
   color: #FFFFFF;
+}
+
+.saveBtn {
+  background-color: #47B4E0;
+  border-radius: 5px;
+  color: #FFFFFF;
+  font-family: 'MontserratUltraLight';
+  letter-spacing: 3px;
+  margin: 0 -300px 0 10px;
+  padding: 5px 50px;
+  position: relative;
+  text-decoration: none;
+  transition: .5s ease-in-out;
+  z-index: 1100;
+}
+
+.saveBtn:hover {
+  background-color: #FFFFFF;
+  border: 1px solid #47B4E0;
+  color: #47B4E0;
+  font-family: 'MontserratLight';
+  padding: 5px 49px;
 }
 
 .sideMenu {
@@ -412,6 +581,12 @@ body {
   margin: 12px 25vw;
 }
 
+.textarea {
+  height: auto;
+  margin-top: 20px;
+  padding-bottom: 5px;
+}
+
 @media (max-width: 1215px) {
   .heroLogoLg {
     display: none;
@@ -447,12 +622,26 @@ body {
     justify-content: space-between;
   }
 
+  .profileGroup {
+    margin-top: 30px;
+    width: 80%;
+  }
+
+  // keep .nonEdit below .profileGroup
+  .nonEdit {
+    margin-top: 0;
+  }
+
   .sideMenuWrapper {
     width: 30%;
   }
 }
 
 @media (max-width: 900px) {
+  .btnGroup {
+    margin-top: 130px;
+  }
+
   .event::after {
     left: 27%;
     width: 50%;
@@ -469,6 +658,7 @@ body {
   .mainAbout {
     flex-direction: column;
     margin: 33% 0 0 0;
+    height: 60vh;
     text-align: center;
   }
 
@@ -476,12 +666,34 @@ body {
     margin-left: 10%;
   }
 
+  .profileGroup {
+    margin-top: 100px;
+    width: 85%;
+  }
+
+  // keep .nonEdit below .profileGroup
+  .nonEdit {
+    margin-top: 0;
+  }
+
+  .nonEdit {
+    margin-top: 0;
+  }
+
+  .saveBtn {
+    margin: 0 -150px 0 10px;
+  }
+
   .sideMenuWrapper {
     width: 39%;
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 769px) {
+  .btnGroup {
+    margin-top: 150px;
+  }
+
   .bracket {
     width: 80px;
   }
@@ -492,6 +704,10 @@ body {
 
   .cssHeroText:nth-child(2) {
     margin-right: 30px;
+  }
+
+  .editIcon {
+    left: 125px;
   }
 
 // .gitHero is below .heroImg
@@ -523,6 +739,10 @@ body {
     margin: 0 0 0 10%;
   }
 
+  .mainAbout {
+    height: 45vh;
+  }
+
   .mainHeader {
     font-family: 'MontserratUltraLight';
     font-size: 3.2rem;
@@ -550,14 +770,57 @@ body {
     margin-top: 10px;
   }
 
+  .profileGroup {
+    margin-top: 150px;
+    width: 90%;
+  }
+
+  // keep .nonEdit below .profileGroup
+  .nonEdit {
+    margin-top: 0;
+  }
+
+  .saveBtn {
+    margin: 0 0 0 10px;
+  }
+
   .sideMenuWrapper {
     width: 50%;
   }
 }
 
+@media (max-width: 700px) {
+  .mainAbout {
+    height: 60vh;
+  }
+}
+
 @media (max-width: 600px) {
+  input:first-of-type {
+    margin-top: 0;
+  }
+
+  input, .textarea {
+    font-size: .8rem;
+    margin-top: 0;
+  }
+
+  label:first-of-type {
+    top: 0;
+  }
+
+  .btnGroup {
+    margin-top: 100px;
+    position: relative;
+    top: 50px;
+  }
+
   .bracket {
     display: none;
+  }
+
+  .editIcon {
+    left: 75px;
   }
 
   .main {
@@ -566,7 +829,12 @@ body {
   }
 
   .mainAbout {
+    height: 80vh;
     margin: 45% 0 0 0;
+  }
+
+  .mainProfileHeader {
+    font-size: 1rem;
   }
 
   .play {
@@ -581,14 +849,39 @@ body {
     margin-right: 10%;
   }
 
+  .profileGroup {
+    margin-top: 180px;
+    width: 95%;
+  }
+
+  // keep .nonEdit below .profileGroup
+  .nonEdit {
+    margin-top: 0;
+  }
+
+  .saveBtn {
+    display: block;
+    margin-left: 0;
+    margin-top: 15px;
+  }
+
   .sideMenuWrapper {
     width: 65%;
   }
 }
 
 @media (max-width: 450px) {
+  .aboutHeader {
+    margin-top: 150px;
+  }
+
   .mainAbout {
+    height: 70vh;
     margin: 55% 0 0 0;
+  }
+
+  .mainProfileHeader {
+    font-size: .8rem;
   }
 
   .play {
