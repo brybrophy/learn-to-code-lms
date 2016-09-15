@@ -9,19 +9,19 @@ const App = React.createClass({
     };
   },
 
-  handleSideNavigation(index) {
+  handleNavigation(index) {
     return this.setState({ slideIndex: index });
   },
 
   render() {
     return <div>
       <Nav
-        handleSideNavigation={this.handleSideNavigation}
+        handleNavigation={this.handleNavigation}
         slideIndex={this.state.slideIndex}
       />
 
       {React.cloneElement(this.props.children, {
-        handleSideNavigation: this.handleSideNavigation,
+        handleNavigation: this.handleNavigation,
         slideIndex: this.state.slideIndex
       })}
     </div>

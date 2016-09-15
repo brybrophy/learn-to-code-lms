@@ -29,6 +29,25 @@ body {
 
 //.aboutHeader is below .mainHeader
 
+.avatar {
+  align-items: center;
+  border: 3px solid #666666;
+  border-radius: 100px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 30px;
+  justify-content: center;
+  margin: 10px 65px 0 0;
+  width: 30px;
+  z-index: 1000;
+}
+
+.avatarImg {
+  height: 65%;
+  width: 65%;
+}
+
 .cssHero {
   background-image: url('/gifs/css.gif');
   background-size: cover;
@@ -159,7 +178,7 @@ body {
   align-items: center;
   display: flex;
   flex-direction: row;
-  height: 90vh;
+  height: 75vh;
   justify-content: center;
   margin: 0 0 0 8.77%;
 }
@@ -375,7 +394,8 @@ body {
 }
 
 .sideNav:first-child {
-  margin-top: 75px;
+  color: #47B4E0;
+  margin-top: 70px;
 }
 
 .sideNav:hover {
@@ -419,6 +439,7 @@ body {
 
   .main {
     flex-direction: column;
+    height: 90vh;
     margin: 0 0 0 18%;
   }
 

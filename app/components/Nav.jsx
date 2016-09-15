@@ -1,7 +1,7 @@
 import { Tab, Tabs } from 'material-ui/Tabs';
 import NavLogo from 'components/NavLogo';
 import React from 'react';
-import { browserHistory } from 'react-router';
+import { browserHistory, Link } from 'react-router';
 
 const pages = {
   home: 0,
@@ -47,11 +47,11 @@ const Nav = React.createClass({
       }
     }
 
-    menu.className = 'menu';
+    menu.className = 'menu hideLg';
     sideMenu.style.left = '500px';
     sideMenuWrap.style.borderLeft = '';
 
-    return this.props.handleSideNavigation(index)
+    return this.props.handleNavigation(index)
   },
 
   handleTouchTapTabs(value) {
@@ -64,7 +64,7 @@ const Nav = React.createClass({
       }
     }
 
-    return this.props.handleSideNavigation(value)
+    return this.props.handleNavigation(value)
   },
 
   render() {
@@ -117,6 +117,9 @@ const Nav = React.createClass({
         />
       </Tabs>
 
+      <div className="avatar hideSm">
+        <img className="avatarImg" src="images/avatar.png" />
+      </div>
       <div
         className="menu hideLg"
         id="menu"

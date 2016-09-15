@@ -13,6 +13,7 @@ import Git from 'components/Git';
 import Home from 'components/Home';
 import Html from 'components/Html';
 import Js from 'components/Js';
+import Profile from 'components/Profile';
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
@@ -35,6 +36,7 @@ const Routes = React.createClass({
         <Route component={Js} path="javascript" />
         <Route component={Git} path="git" />
         <Route component={About} path="about" />
+        <Route component={Profile} path="profile" />
       </Route>
     </Router>;
   }
