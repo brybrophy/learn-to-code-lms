@@ -14,12 +14,17 @@ const App = React.createClass({
         git: 4,
         about: 5
       },
+      profileStatus: 1,
       slideIndex: null
     };
   },
 
   handleLoginPage() {
     browserHistory.push('/login');
+  },
+
+  handleProfileStatus(value) {
+    return this.setState({ profileStatus: value });
   },
 
   handleSlideIndex(value) {
@@ -37,9 +42,11 @@ const App = React.createClass({
 
       {React.cloneElement(this.props.children, {
         handleLoginPage: this.handleLoginPage,
+        handleProfileStatus: this.handleProfileStatus,
         handleSlideIndex: this.handleSlideIndex,
         loggedIn: this.state.loggedIn,
         pages: this.state.pages,
+        profileStatus: this.state.profileStatus,
         slideIndex: this.state.slideIndex
       })}
     </div>;

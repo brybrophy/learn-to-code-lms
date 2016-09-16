@@ -1,16 +1,10 @@
 import React from 'react';
 
 const Profile = React.createClass({
-  getInitialState() {
-    return {
-      profileStatus: 1
-    }
-  },
-
   handleTouchTap(event) {
     const id = parseInt(event.currentTarget.id);
 
-    return this.setState({ profileStatus: id });
+    this.props.handleProfileStatus(id);
   },
 
   render() {
@@ -19,7 +13,7 @@ const Profile = React.createClass({
 
     let ProfileMain;
 
-    if (this.state.profileStatus === 1) {
+    if (this.props.profileStatus === 1) {
       ProfileMain = <main className="mainProfile">
         <div>
           <img className="avatarProfile" src="/images/avatar-photo.png" />
@@ -43,7 +37,7 @@ const Profile = React.createClass({
       </main>
     }
 
-    if (this.state.profileStatus === 2) {
+    if (this.props.profileStatus === 2) {
       ProfileMain = <main className="mainProfile">
         <img className="avatarProfile" src="/images/avatar-photo.png" />
         <form className="profileGroup">
