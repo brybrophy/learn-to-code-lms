@@ -1,18 +1,14 @@
 import React from 'react';
 
-const Login = React.createClass({
+const Profile = React.createClass({
   getInitialState() {
     return {
-      profileStatus: 0
+      profileStatus: 1
     }
   },
 
   handleTouchTap(event) {
     const id = parseInt(event.currentTarget.id);
-
-    if (id === 0) {
-      return this.setState({ profileStatus: 1 });
-    }
 
     return this.setState({ profileStatus: id });
   },
@@ -22,17 +18,6 @@ const Login = React.createClass({
     const bio = "I am web developer by trade and a creator in essence. Whether through code, through a camera, or though sound, the creation of “things” is my driving force."
 
     let ProfileMain;
-
-    if (this.state.profileStatus === 0) {
-      ProfileMain = <main className="mainProfile">
-        <h3 className="mainProfileHeader">Signup or Login  with meetup.com</h3>
-        <h3 className="mainProfileHeader">to view and edit your profile.</h3>
-        <a className="authBtnMeetup" id="0" onTouchTap={this.handleTouchTap}>
-          <img src="/images/meetup-logo.svg" />
-          <img src="/images/meetup-word-logo.svg" />
-        </a>
-      </main>
-    }
 
     if (this.state.profileStatus === 1) {
       ProfileMain = <main className="mainProfile">
@@ -94,4 +79,4 @@ const Login = React.createClass({
   }
 });
 
-export default Login;
+export default Profile;
