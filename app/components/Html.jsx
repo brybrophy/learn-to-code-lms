@@ -1,12 +1,16 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { browserHistory, withRouter } from 'react-router';
 
 const Html = React.createClass({
   componentWillMount() {
     this.props.handleSlideIndex(1);
   },
 
-  handleTouchTap() {
+  handleTouchTap(event) {
+    if (event.target.className = 'fastForwardContainer') {
+      return browserHistory.push('/css');
+    }
+
     this.props.handleSlideIndex(null);
     this.props.handleLoginPage();
   },
@@ -25,7 +29,7 @@ const Html = React.createClass({
           <strong className="regular">HyperText Markup Language</strong> (HTML) is the standard language used to create webpages. Anytime you see a webpage in a browser, HTML is the language telling the browser what content to put on the screen. If a webpage had a human anatomy, HTML would be the skeleton.
           </p>
         </section>
-        <div className="fastForwardContainer">
+        <div className="fastForwardContainer" onTouchTap={this.handleTouchTap}>
           <div className="fastForward">
             <img src="/images/fast-forward.svg" />
           </div>

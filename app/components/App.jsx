@@ -6,6 +6,14 @@ const App = React.createClass({
   getInitialState() {
     return {
       loggedIn: false,
+      pages: {
+        home: 0,
+        html: 1,
+        css: 2,
+        javascript: 3,
+        git: 4,
+        about: 5
+      },
       slideIndex: null
     };
   },
@@ -22,6 +30,8 @@ const App = React.createClass({
     return <div>
       <Nav
         handleSlideIndex={this.handleSlideIndex}
+        loggedIn={this.state.loggedIn}
+        pages={this.state.pages}
         slideIndex={this.state.slideIndex}
       />
 
@@ -29,6 +39,7 @@ const App = React.createClass({
         handleLoginPage: this.handleLoginPage,
         handleSlideIndex: this.handleSlideIndex,
         loggedIn: this.state.loggedIn,
+        pages: this.state.pages,
         slideIndex: this.state.slideIndex
       })}
     </div>;

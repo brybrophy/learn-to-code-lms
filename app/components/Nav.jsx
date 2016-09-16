@@ -3,20 +3,11 @@ import NavLogo from 'components/NavLogo';
 import React from 'react';
 import { browserHistory, Link } from 'react-router';
 
-const pages = {
-  home: 0,
-  html: 1,
-  css: 2,
-  javascript: 3,
-  git: 4,
-  about: 5
-}
-
 const Nav = React.createClass({
   handleTouchTapAvatar() {
     if (!this.props.loggedIn) {
       this.props.handleSlideIndex(null);
-      
+
       return browserHistory.push('/login');
     }
 
@@ -77,6 +68,7 @@ const Nav = React.createClass({
   },
 
   handleTouchTapSideNav(event) {
+    const pages = this.props.pages;
     const index = parseInt(event.target.id);
     const menu = document.getElementsByClassName('menu')[0];
     const sideMenu = document.getElementsByClassName('sideMenu')[0];
@@ -94,11 +86,11 @@ const Nav = React.createClass({
     menu.className = 'menu hideLg';
     sideMenu.style.left = '500px';
     sideMenuWrap.style.borderLeft = '';
-
-    return this.props.handleSlideIndex(index)
   },
 
   handleTouchTapTabs(value) {
+    const pages = this.props.pages;
+
     for (const page in pages) {
       if (value === 0) {
         browserHistory.push(`/`);
@@ -107,8 +99,6 @@ const Nav = React.createClass({
         browserHistory.push(`/${page}`);
       }
     }
-
-    return this.props.handleSlideIndex(value)
   },
 
   render() {
