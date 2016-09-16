@@ -29,13 +29,16 @@ const About = React.createClass({
           <br />
         </div>
         <p className="eventInfo">
-          See more on  <a
+          See more on
+          <a
             className="eventLink"
-            href="http://www.meetup.com/Learn-Code-Seattle/">meetup.com
+            href="http://www.meetup.com/Learn-Code-Seattle/"
+          >
+            meetup.com
           </a>
         </p>
       </section>
-    </main>
+    </main>;
   }
 });
 

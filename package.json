@@ -55,6 +55,7 @@
     "clean-css-brunch": "^2.0.0",
     "eslint": "^3.4.0",
     "eslint-config-ryansobol": "^9.1.1",
+    "eslint-plugin-react": "^6.2.2",
     "javascript-brunch": "^2.0.0",
     "postcss-brunch": "^2.0.1",
     "surge": "^0.18.0",

@@ -1,6 +1,5 @@
 import Nav from 'components/Nav';
 import React from 'react';
-// import SwipeableViews from 'react-swipeable-views';
 
 const App = React.createClass({
   getInitialState() {
@@ -24,7 +23,7 @@ const App = React.createClass({
         handleNavigation: this.handleNavigation,
         slideIndex: this.state.slideIndex
       })}
-    </div>
+    </div>;
   }
 });
 
