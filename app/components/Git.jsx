@@ -1,6 +1,15 @@
 import React from 'react';
 
 const Git = React.createClass({
+  componentWillMount() {
+    this.props.handleSlideIndex(4);
+  },
+
+  handleTouchTap() {
+    this.props.handleSlideIndex(null);
+    this.props.handleLoginPage();
+  },
+
   render() {
     return <div>
       <section className="heroImg gitHero">
@@ -21,7 +30,7 @@ const Git = React.createClass({
           </div>
         </div>
         <div className="lessonLogin">
-          <h5>
+          <h5 onTouchTap={this.handleTouchTap}>
             <a>Create an account</a> or <a>login</a> to view full lesson
           </h5>
         </div>

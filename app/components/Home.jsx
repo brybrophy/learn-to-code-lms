@@ -2,6 +2,10 @@ import React from 'react';
 import { browserHistory } from 'react-router';
 
 const Home = React.createClass({
+  componentWillMount() {
+    this.props.handleSlideIndex(0);
+  },
+
   handleTouchTap() {
     browserHistory.push('/html');
   },

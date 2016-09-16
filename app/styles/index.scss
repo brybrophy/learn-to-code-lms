@@ -629,7 +629,7 @@ label:first-of-type {
   transition: .3s ease-in-out;
   transition-delay: .4s;
   width: 22%;
-  z-index: 999;
+  z-index: 0;
 }
 
 .sideNav {
@@ -921,7 +921,7 @@ label:first-of-type {
   }
 
   .mainLoginHeader {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .play {
@@ -972,7 +972,7 @@ label:first-of-type {
   }
 
   .mainLoginHeader {
-    font-size: .8rem;
+    font-size: .9rem;
   }
 
   .play {

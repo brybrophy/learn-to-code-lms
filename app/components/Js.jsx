@@ -1,6 +1,15 @@
 import React from 'react';
 
 const Js = React.createClass({
+  componentWillMount() {
+    this.props.handleSlideIndex(3);
+  },
+
+  handleTouchTap() {
+    this.props.handleSlideIndex(null);
+    this.props.handleLoginPage();
+  },
+
   render() {
     return <div>
       <section className="heroImg jsHero">
@@ -23,7 +32,7 @@ const Js = React.createClass({
           </div>
         </div>
         <div className="lessonLogin">
-          <h5>
+          <h5 onTouchTap={this.handleTouchTap}>
             <a>Create an account</a> or <a>login</a> to view full lesson
           </h5>
         </div>

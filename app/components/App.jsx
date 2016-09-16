@@ -1,26 +1,34 @@
 import Nav from 'components/Nav';
 import React from 'react';
+import { browserHistory } from 'react-router';
 
 const App = React.createClass({
   getInitialState() {
     return {
-      slideIndex: 0
+      loggedIn: false,
+      slideIndex: null
     };
   },
 
-  handleNavigation(value) {
+  handleLoginPage() {
+    browserHistory.push('/login');
+  },
+
+  handleSlideIndex(value) {
     return this.setState({ slideIndex: value });
   },
 
   render() {
     return <div>
       <Nav
-        handleNavigation={this.handleNavigation}
+        handleSlideIndex={this.handleSlideIndex}
         slideIndex={this.state.slideIndex}
       />
 
       {React.cloneElement(this.props.children, {
-        handleNavigation: this.handleNavigation,
+        handleLoginPage: this.handleLoginPage,
+        handleSlideIndex: this.handleSlideIndex,
+        loggedIn: this.state.loggedIn,
         slideIndex: this.state.slideIndex
       })}
     </div>;

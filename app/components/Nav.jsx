@@ -14,9 +14,15 @@ const pages = {
 
 const Nav = React.createClass({
   handleTouchTapAvatar() {
+    if (!this.props.loggedIn) {
+      this.props.handleSlideIndex(null);
+      
+      return browserHistory.push('/login');
+    }
+
     browserHistory.push('/profile');
 
-    return this.props.handleNavigation(null);
+    return this.props.handleSlideIndex(null);
   },
 
   handleTouchTapMenu() {
@@ -44,6 +50,7 @@ const Nav = React.createClass({
 
       menu.className = 'menu hideLg';
       sideMenu.style.left = '500px';
+      sideMenuWrap.style.zIndex = '0';
       sideMenuWrap.style.borderLeft = '';
     }
 
@@ -63,6 +70,7 @@ const Nav = React.createClass({
 
       menu.className += ' open';
       sideMenu.style.left = '0';
+      sideMenuWrap.style.zIndex = '999';
       sideMenuWrap.style.borderLeft = '100vw solid rgba(34, 34, 34, 0.75)';
     }
 
@@ -87,7 +95,7 @@ const Nav = React.createClass({
     sideMenu.style.left = '500px';
     sideMenuWrap.style.borderLeft = '';
 
-    return this.props.handleNavigation(index)
+    return this.props.handleSlideIndex(index)
   },
 
   handleTouchTapTabs(value) {
@@ -100,7 +108,7 @@ const Nav = React.createClass({
       }
     }
 
-    return this.props.handleNavigation(value)
+    return this.props.handleSlideIndex(value)
   },
 
   render() {

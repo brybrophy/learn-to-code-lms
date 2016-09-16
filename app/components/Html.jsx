@@ -2,6 +2,15 @@ import React from 'react';
 import { withRouter } from 'react-router';
 
 const Html = React.createClass({
+  componentWillMount() {
+    this.props.handleSlideIndex(1);
+  },
+
+  handleTouchTap() {
+    this.props.handleSlideIndex(null);
+    this.props.handleLoginPage();
+  },
+
   render() {
     return <div>
       <section className=" heroImg htmlHero">
@@ -25,7 +34,7 @@ const Html = React.createClass({
           </div>
         </div>
         <div className="lessonLogin">
-          <h5>
+          <h5 onTouchTap={this.handleTouchTap}>
             <a>Create an account</a> or <a>login</a> to view full lesson
           </h5>
         </div>

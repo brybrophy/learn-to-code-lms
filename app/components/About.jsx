@@ -1,12 +1,27 @@
 import React from 'react';
 
 const About = React.createClass({
+  componentWillMount() {
+    this.props.handleSlideIndex(5);
+  },
+
+  handleTouchTap() {
+    this.props.handleSlideIndex(null);
+    this.props.handleLoginPage();
+  },
+
   render() {
     return <main className="mainAbout">
       <section className="mainContent">
         <h1 className="mainHeader aboutHeader">Learn To Code</h1>
         <p className="mainParagraph">Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce lettuce water chestnut eggplant winter purslane fennel azuki bean earthnut pea sierra leone bologi leek soko chicory celtuce parsley jÃ­cama salsify.</p>
-        <a className="getStartedBtn" href="#">GET STARTED</a>
+        <a
+          className="getStartedBtn"
+          href="#"
+          onTouchTap={this.handleTouchTap}
+        >
+          GET STARTED
+        </a>
       </section>
       <section className="mainContent events">
         <h3 className="eventsHeader">Upcoming Classes</h3>
