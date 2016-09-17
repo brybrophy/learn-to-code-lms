@@ -1,6 +1,11 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 const Login = React.createClass({
+  handleLogin() {
+    window.location.href = '/api/auth/meetup';
+  },
+
   render() {
     return <div>
       <section className="heroImg profileHero">
@@ -12,6 +17,7 @@ const Login = React.createClass({
         <h3 className="mainLoginHeader">edit your profile.</h3>
         <a
           className="authBtnMeetup"
+          onTouchTap={this.handleLogin}
         >
           <img src="/images/meetup-logo.svg" />
           <img src="/images/meetup-word-logo.svg" />

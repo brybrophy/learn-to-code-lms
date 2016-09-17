@@ -34,17 +34,19 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //CSRF protection
-app.use('/api', (req, res, next) => {
-  if (/json/.test(req.get('Accept'))) {
-    return next();
-  }
-
-  res.sendStatus(406);
-});
+// app.use('/api', (req, res, next) => {
+//   if (/json/.test(req.get('Accept'))) {
+//     return next();
+//   }
+//
+//   res.sendStatus(406);
+// });
 
 const users = require('./routes/users');
+const auth = require('./routes/auth');
 
 app.use('/api', users);
+app.use('/api', auth);
 
 app.use((_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
