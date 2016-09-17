@@ -28,6 +28,10 @@ const Nav = React.createClass({
     browserHistory.push('/login')
   },
 
+  handleTouchTapLogo() {
+    browserHistory.push(`/`);
+  },
+
   handleTouchTapMenu() {
     const authBtnMeetup = document.getElementsByClassName('authBtnMeetup')[0];
     const cancelBtn = document.getElementsByClassName('cancelBtn')[0];
@@ -148,7 +152,11 @@ const Nav = React.createClass({
     };
 
     return <nav className="nav">
-      <img className="navLogo" src="/images/nav-logo.png" />
+      <img
+        className="navLogo"
+        onTouchTap={this.handleTouchTapLogo}
+        src="/images/nav-logo.png"
+      />
 
       <Tabs
         inkBarStyle={{ marginLeft: '6%', width: '5%' }}
