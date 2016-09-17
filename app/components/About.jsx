@@ -49,7 +49,7 @@ const About = React.createClass({
             className="eventLink"
             href="http://www.meetup.com/Learn-Code-Seattle/"
           >
-            meetup.com
+            {' '}meetup.com
           </a>
         </p>
       </section>

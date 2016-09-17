@@ -1,11 +1,16 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 
 const Js = React.createClass({
   componentWillMount() {
     this.props.handleSlideIndex(3);
   },
 
-  handleTouchTap() {
+  handleTouchTap(event) {
+    if (event.target.class = 'fastForwardContainer') {
+      return browserHistory.push('/git');
+    }
+
     this.props.handleSlideIndex(null);
     this.props.handleLoginPage();
   },
@@ -23,7 +28,7 @@ const Js = React.createClass({
           </p>
           <br />
         </section>
-        <div className="fastForwardContainer">
+        <div className="fastForwardContainer" onTouchTap={this.handleTouchTap}>
           <div className="fastForward">
             <img src="/images/fast-forward.svg" />
           </div>

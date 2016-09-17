@@ -1,5 +1,5 @@
 import React from 'react';
-import { browserHistory, withRouter } from 'react-router';
+import { browserHistory } from 'react-router';
 
 const Html = React.createClass({
   componentWillMount() {
@@ -47,4 +47,4 @@ const Html = React.createClass({
   }
 });
 
-export default withRouter(Html);
+export default Html;

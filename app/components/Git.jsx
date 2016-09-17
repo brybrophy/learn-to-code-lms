@@ -1,11 +1,16 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 
 const Git = React.createClass({
   componentWillMount() {
     this.props.handleSlideIndex(4);
   },
 
-  handleTouchTap() {
+  handleTouchTap(event) {
+    if (event.target.class = 'fastForwardContainer') {
+      return browserHistory.push('/about');
+    }
+
     this.props.handleSlideIndex(null);
     this.props.handleLoginPage();
   },
@@ -21,7 +26,7 @@ const Git = React.createClass({
           <strong className="regular">Git</strong> is a version control system. Version Control is a class of tools that programmers use to manage software projects. It allows you to track changes you make to files on your machine. This is helpful for when you screw things up!  Version control allows developers to revert back to a specific time and place in their code. Sort of like a reset button.
           </p>
         </section>
-        <div className="fastForwardContainer">
+        <div className="fastForwardContainer" onTouchTap={this.handleTouchTap}>
           <div className="fastForward">
             <img src="/images/fast-forward.svg" />
           </div>

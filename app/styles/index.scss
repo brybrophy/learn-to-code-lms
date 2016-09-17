@@ -642,11 +642,19 @@ label:first-of-type {
 
 .sideNav:first-child {
   color: #47B4E0;
+  margin-left: -11px;
   margin-top: 70px;
 }
 
 .sideNav:hover {
   background-color: #F2F7F3;
+}
+
+.sideNavIcon {
+  margin-left: -33px;
+  position: relative;
+  right: 15px;
+  top: 10px;
 }
 
 .tab {
@@ -977,5 +985,9 @@ label:first-of-type {
 
   .play {
     margin: 0 0 10px 35%;
+  }
+
+  .sideMenuWrapper {
+    width: 71%;
   }
 }

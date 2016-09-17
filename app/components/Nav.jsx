@@ -1,5 +1,4 @@
 import { Tab, Tabs } from 'material-ui/Tabs';
-import NavLogo from 'components/NavLogo';
 import React from 'react';
 import { browserHistory, Link } from 'react-router';
 
@@ -14,6 +13,19 @@ const Nav = React.createClass({
     browserHistory.push('/profile');
 
     return this.props.handleSlideIndex(null);
+  },
+
+  handleTouchTapLogin() {
+    const menu = document.getElementsByClassName('menu')[0];
+    const sideMenu = document.getElementsByClassName('sideMenu')[0];
+    const sideMenuWrap = document.getElementsByClassName('sideMenuWrapper')[0];
+
+    menu.className = 'menu hideLg';
+    sideMenu.style.left = '500px';
+    sideMenuWrap.style.zIndex = '0';
+    sideMenuWrap.style.borderLeft = '';
+
+    browserHistory.push('/login')
   },
 
   handleTouchTapMenu() {
@@ -74,6 +86,10 @@ const Nav = React.createClass({
     const sideMenu = document.getElementsByClassName('sideMenu')[0];
     const sideMenuWrap = document.getElementsByClassName('sideMenuWrapper')[0];
 
+    if (event.target.id = 'profile') {
+      browserHistory.push('/profile');
+    }
+
     for (const page in pages) {
       if (index === 0) {
         browserHistory.push(`/`);
@@ -102,6 +118,28 @@ const Nav = React.createClass({
   },
 
   render() {
+    let loginOrLogout = <a
+      className="sideNav"
+      id="login"
+      onTouchTap={this.handleTouchTapLogin}
+    >
+      <img className="sideNavIcon" src="/images/log-out.svg" />
+      LOGOUT
+    </a>;
+
+    if (!this.props.loggedIn) {
+      loginOrLogout = <a
+        className="sideNav"
+        id="login"
+        onTouchTap={this.handleTouchTapLogin}
+      >
+        <img className="sideNavIcon" src="/images/log-in.svg" />
+        SIGNUP / LOGIN
+      </a>;
+    }
+
+
+
     const styles = {
       tab: {
         backgroundColor: '#FFFFFF',
@@ -110,7 +148,7 @@ const Nav = React.createClass({
     };
 
     return <nav className="nav">
-      <NavLogo />
+      <img className="navLogo" src="/images/nav-logo.png" />
 
       <Tabs
         inkBarStyle={{ marginLeft: '6%', width: '5%' }}
@@ -166,45 +204,64 @@ const Nav = React.createClass({
 
       <div className="sideMenuWrapper">
         <aside className="sideMenu">
+          {loginOrLogout}
+
           <a
             className="sideNav"
-          >SIGNUP / LOGIN</a>
+            id="profile"
+            onTouchTap={this.handleTouchTapSideNav}
+          >
+            <img className="sideNavIcon" src="/images/settings.svg" />
+            PROFILE
+          </a>
 
           <a
             className="sideNav"
             onTouchTap={this.handleTouchTapSideNav}
             id="0"
-          >HOME</a>
+          >
+            HOME
+          </a>
 
           <a
             className="sideNav"
             id="1"
             onTouchTap={this.handleTouchTapSideNav}
-          >HTML</a>
+          >
+            HTML
+          </a>
 
           <a
             className="sideNav"
             id="2"
             onTouchTap={this.handleTouchTapSideNav}
-          >CSS</a>
+          >
+            CSS
+          </a>
 
           <a
             className="sideNav"
             id="3"
             onTouchTap={this.handleTouchTapSideNav}
-          >JAVASCRIPT</a>
+          >
+            JAVASCRIPT
+          </a>
 
           <a
             className="sideNav"
             id="4"
             onTouchTap={this.handleTouchTapSideNav}
-          >GIT</a>
+          >
+            GIT
+          </a>
 
           <a
             className="sideNav"
             id="5"
             onTouchTap={this.handleTouchTapSideNav}
-          >ABOUT</a>
+          >
+            ABOUT
+          </a>
         </aside>
       </div>
     </nav>;
