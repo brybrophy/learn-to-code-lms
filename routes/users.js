@@ -15,7 +15,8 @@ router.get('/users/:id', (req, res, next) => {
   const { id } = req.params;
 
   return knex('users')
-    .where('id', id)
+    .innerJoin('identities', 'identities.user_id', 'users.id')
+    .where('users.id', id)
     .first()
     .then((result) => {
       if (!result) {

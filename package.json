@@ -34,6 +34,8 @@
     "material-ui": "^0.15.4",
     "mocha": "^3.0.2",
     "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-meetup-oauth2": "0.0.2",
     "pg": "^6.1.0",
     "react": "^15.3.1",
     "react-addons-css-transition-group": "^15.3.1",
