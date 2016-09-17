@@ -14,7 +14,15 @@ const About = React.createClass({
     return <main className="mainAbout">
       <section className="mainContent">
         <h1 className="mainHeader aboutHeader">Learn To Code</h1>
-        <p className="mainParagraph">Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce lettuce water chestnut eggplant winter purslane fennel azuki bean earthnut pea sierra leone bologi leek soko chicory celtuce parsley jÃ­cama salsify.</p>
+        <p className="mainParagraph">
+          Learn to code is run by
+          <a
+            className="regular eventLink"
+            href="http://www.galvanize.com/courses"
+          >
+            {' '}Galvanize
+          </a>
+          , a school and co-working space that is dedicated to transforming lives and building community. Galvanize offers immersive programs in Web Development and Data Science that have helped hundreds of people level up their careers in a matter of months. Learn to code classes are a great first step in the journey to becoming a developer and we hope that the foundation they provide will help you as your journey continues. Good Luck!</p>
         <a
           className="getStartedBtn"
           href="#"
