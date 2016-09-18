@@ -1,4 +1,5 @@
 import React from 'react';
+import TourView from 'components/TourView';
 import { browserHistory } from 'react-router';
 
 const Js = React.createClass({
@@ -6,16 +7,20 @@ const Js = React.createClass({
     this.props.handleSlideIndex(3);
   },
 
-  handleTouchTap(event) {
-    if (event.target.class = 'fastForwardContainer') {
-      return browserHistory.push('/git');
-    }
-
-    this.props.handleSlideIndex(null);
-    this.props.handleLoginPage();
+  handleTouchTap() {
+     browserHistory.push('/git');
   },
 
   render() {
+    let tourView;
+
+    if (!this.props.loggedIn) {
+      tourView = <TourView
+        onHandleTouchTap={this.handleTouchTap}
+        handleLoginPage={this.props.handleLoginPage}
+      />
+    }
+
     return <div>
       <section className="heroImg jsHero">
         <h1 className="heroText jsHeroText">Java</h1>
@@ -28,19 +33,7 @@ const Js = React.createClass({
           </p>
           <br />
         </section>
-        <div className="fastForwardContainer" onTouchTap={this.handleTouchTap}>
-          <div className="fastForward">
-            <img src="/images/fast-forward.svg" />
-          </div>
-          <div>
-            <p className="fastForwardLabel">Continue <br />Tour</p>
-          </div>
-        </div>
-        <div className="lessonLogin">
-          <h5 onTouchTap={this.handleTouchTap}>
-            <a>Create an account</a> or <a>login</a> to view full lesson
-          </h5>
-        </div>
+        {tourView}
       </main>
     </div>;
   }

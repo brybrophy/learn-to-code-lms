@@ -21,9 +21,9 @@ passport.use(new MeetupStrategy({
     return profile;
 }));
 
-router.get('/auth/meetup', passport.authenticate('meetup'));
+router.get('/login/meetup', passport.authenticate('meetup'));
 
-router.get('/auth/meetup/callback', passport.authenticate('meetup', {
+router.get('/login/meetup/callback', passport.authenticate('meetup', {
   failureRedirect: '/login'
 }), (req, res) => {
     res.redirect('/');

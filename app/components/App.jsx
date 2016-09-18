@@ -21,6 +21,8 @@ const App = React.createClass({
 
   handleLoginPage() {
     browserHistory.push('/login');
+
+    this.setState({ slideIndex: null });
   },
 
   handleProfileStatus(value) {

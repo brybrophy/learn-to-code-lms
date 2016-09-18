@@ -201,7 +201,7 @@ label:first-of-type {
 
 .events {
   margin-left: 16%;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 .eventsHeader {
@@ -673,6 +673,12 @@ label:first-of-type {
   padding-bottom: 5px;
 }
 
+.tourView {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 @media (max-width: 1215px) {
   .heroLogoLg {
     display: none;
@@ -914,8 +920,7 @@ label:first-of-type {
   }
 
   .lessonLogin {
-    margin-left: 0;
-    margin-right: 0;
+    margin: 0 auto;
   }
 
   .main {

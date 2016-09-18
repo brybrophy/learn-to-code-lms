@@ -1,4 +1,5 @@
 import React from 'react';
+import TourView from 'components/TourView';
 import { browserHistory } from 'react-router';
 
 const Git = React.createClass({
@@ -7,15 +8,19 @@ const Git = React.createClass({
   },
 
   handleTouchTap(event) {
-    if (event.target.class = 'fastForwardContainer') {
-      return browserHistory.push('/about');
-    }
-
-    this.props.handleSlideIndex(null);
-    this.props.handleLoginPage();
+    browserHistory.push('/about');
   },
 
   render() {
+    let tourView;
+
+    if (!this.props.loggedIn) {
+      tourView = <TourView
+        onHandleTouchTap={this.handleTouchTap}
+        handleLoginPage={this.props.handleLoginPage}
+      />
+    }
+
     return <div>
       <section className="heroImg gitHero">
         <h1 className="heroText gitHeroText">Git</h1>
@@ -26,19 +31,7 @@ const Git = React.createClass({
           <strong className="regular">Git</strong> is a version control system. Version Control is a class of tools that programmers use to manage software projects. It allows you to track changes you make to files on your machine. This is helpful for when you screw things up!  Version control allows developers to revert back to a specific time and place in their code. Sort of like a reset button.
           </p>
         </section>
-        <div className="fastForwardContainer" onTouchTap={this.handleTouchTap}>
-          <div className="fastForward">
-            <img src="/images/fast-forward.svg" />
-          </div>
-          <div>
-            <p className="fastForwardLabel">Continue <br />Tour</p>
-          </div>
-        </div>
-        <div className="lessonLogin">
-          <h5 onTouchTap={this.handleTouchTap}>
-            <a>Create an account</a> or <a>login</a> to view full lesson
-          </h5>
-        </div>
+        {tourView}
       </main>
     </div>;
   }
