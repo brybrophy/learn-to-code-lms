@@ -86,8 +86,6 @@ label:first-of-type {
 select {
   font-family: 'Montserrat';
   margin-left: 10px;
-  position: relative;
-  top: 8px;
 }
 
 //.aboutHeader is below .mainHeader
@@ -337,10 +335,11 @@ select {
   line-height: 37px;
 }
 
-.lessonLogin a {
+.lessonLogin a, .lessonLink {
   color: #47B4E0;
   cursor: pointer;
   position: relative;
+  text-decoration: none;
 }
 
 .lessonSection {
@@ -348,7 +347,7 @@ select {
   font-family: 'MontserratLight';
   font-size: 1.3rem;
   line-height: 37px;
-  text-align: center;
+  text-align: left;
   width: 65%;
 }
 
@@ -612,7 +611,7 @@ select {
 .repl {
   border: 2px solid #F2F7F3;
   border-radius: 5px;
-  margin: 50px 0 50px 40px;
+  margin: 50px 0;
   text-align: left;
 }
 
@@ -737,6 +736,10 @@ select {
     position: relative;
   }
 
+  .lessonSection {
+    width: 75vw;
+  }
+
   .lessonStarter {
     width: 75%;
   }
@@ -774,6 +777,10 @@ select {
   .event::after {
     left: 27%;
     width: 50%;
+  }
+
+  .lessonSection {
+    width: 85vw;
   }
 
   .events {
@@ -907,6 +914,10 @@ select {
   // keep .nonEdit below .profileGroup
   .nonEdit {
     margin-top: 0;
+  }
+
+  .repl {
+    margin: 50px 0;
   }
 
   .saveBtn {

@@ -30,7 +30,7 @@ const JsRepl = React.createClass({
         tabSize={2}
         theme={this.props.theme}
         value={snippet}
-        width='60vw'
+        width='100%'
       />
 
     </section>
