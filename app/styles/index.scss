@@ -83,6 +83,13 @@ label:first-of-type {
   top: 10px;
 }
 
+select {
+  font-family: 'Montserrat';
+  margin-left: 10px;
+  position: relative;
+  top: 8px;
+}
+
 //.aboutHeader is below .mainHeader
 
 .authBtnMeetup {
@@ -325,10 +332,24 @@ label:first-of-type {
   margin-right: 30px;
 }
 
+.lessonHeader {
+  font-size: 2.5rem;
+  line-height: 37px;
+}
+
 .lessonLogin a {
   color: #47B4E0;
   cursor: pointer;
   position: relative;
+}
+
+.lessonSection {
+  color: #4E4E4E;
+  font-family: 'MontserratLight';
+  font-size: 1.3rem;
+  line-height: 37px;
+  text-align: center;
+  width: 65%;
 }
 
 .lessonStarter {
@@ -588,6 +609,13 @@ label:first-of-type {
   font-family: 'Montserrat';
 }
 
+.repl {
+  border: 2px solid #F2F7F3;
+  border-radius: 5px;
+  margin: 50px 0 50px 40px;
+  text-align: left;
+}
+
 .saveBtn {
   background-color: #47B4E0;
   border-radius: 5px;
@@ -671,6 +699,11 @@ label:first-of-type {
   height: auto;
   margin-top: 20px;
   padding-bottom: 5px;
+}
+
+.themeLabel {
+  font-size: 1rem;
+  left: 0;
 }
 
 .tourView {
