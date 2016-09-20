@@ -27,6 +27,6 @@ module.exports = {
   },
 
   server: {
-    port: Number.parseInt(process.env.PORT) || 8000
+    command: 'nodemon --ignore app --ignore public server.js'
   }
 };

@@ -4,6 +4,8 @@ import ThemeSelector from 'components/ThemeSelector';
 import TourView from 'components/TourView';
 import { browserHistory } from 'react-router';
 
+const helloWorld = '"use strict";\n  function helloWorld() {\n  console.log("Hello world");\n}\n\nhelloWorld();';
+
 const Js = React.createClass({
   componentWillMount() {
     this.props.handleSlideIndex(3);
@@ -52,7 +54,10 @@ const Js = React.createClass({
 
             <JsRepl
               handleReplChange={this.props.handleReplChange}
-              replName="chooseTheme"
+              initialValue={this.props.snippets.helloWorld}
+              replName="helloWorld"
+              resultName="themeResult"
+              snippets={this.props.snippets}
               theme={this.props.theme}
             />
 
@@ -81,15 +86,56 @@ const Js = React.createClass({
               Practice the Basics
             </h3>
 
-            <p>Before we can dive deeper into JavaScript, we need to learn some basic syntax. The official JavaScript website has put together a quick, 5 minute mini-tutorial that we are going to follow.</p>
+            <p>Before we can dive deeper into JavaScript, we need to learn some basic syntax.</p>
 
-            <a
-              className="lessonLink"
-              href="https://www.javascript.com/try"
-              target="_blank"
-            >
-              https://www.javascript.com/try
-            </a>
+            <p>Follow the instructions in the editors below.</p>
+
+            <section className="lessonExercise">
+              <p className="replHeader">1. Strings</p>
+
+              <JsRepl
+                handleReplChange={this.props.handleReplChange}
+                initialValue={this.props.snippets.stringExersice}
+                replName="stringExersice"
+                resultName="stringResult"
+                snippets={this.props.snippets}
+                theme={this.props.theme}
+              />
+            </section>
+
+            <p className="replHeader">2. Numbers</p>
+
+            <JsRepl
+              handleReplChange={this.props.handleReplChange}
+              initialValue={this.props.snippets.numberExersice}
+              replName="numberExersice"
+              resultName="numberResult"
+              snippets={this.props.snippets}
+              theme={this.props.theme}
+            />
+
+            <p className="replHeader">3. Variables</p>
+
+            <JsRepl
+              handleReplChange={this.props.handleReplChange}
+              initialValue={this.props.snippets.varExersice}
+              replName="varExersice"
+              resultName="varResult"
+              snippets={this.props.snippets}
+              theme={this.props.theme}
+            />
+
+            <p className="replHeader">4. Combining Variables</p>
+
+            <JsRepl
+              handleReplChange={this.props.handleReplChange}
+              initialValue={this.props.snippets.combineExersice}
+              replName="combineExersice"
+              resultName="combineResult"
+              snippets={this.props.snippets}
+              theme={this.props.theme}
+            />
+
           </article>
       </main>
     </div>;

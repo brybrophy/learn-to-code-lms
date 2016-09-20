@@ -6,7 +6,7 @@ const ThemeSelector = React.createClass({
   },
 
   render() {
-    return <div>
+    return <div className="replHeader">
       <label className="themeLabel" htmlFor="themes">
       </label>
       <select

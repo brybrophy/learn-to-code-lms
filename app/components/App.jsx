@@ -16,6 +16,17 @@ const App = React.createClass({
       },
       profileStatus: 1,
       slideIndex: null,
+      snippets: {
+        combineExersice: '// You can combine variables just like numbers in JavaScript. Below, declare\n// 2 strings as two different varibles. Then combine the 2 variables together.\n// See if you can figure this one out without an example.\n\n// HINT: You\'ll need to figure out how to add a space between the 2 variables.',
+
+        helloWorld: '\'use strict\';\n\nfunction helloWorld() {\n  return \'Hello world\';\n}\n\nhelloWorld();',
+
+        numberExersice: '// Numbers in javascript work just like numbers in\n\// the real world. Try doing some basic math below.\n\n// example: 1 + 1',
+
+        stringExersice: '// In JavaScript, code written inside of quotes is called a string.\n// Type your name in quotes, then type a semi-colon.\n//\n// example: \'Bill Murray\';',
+
+        varExersice: '// Variables are places where you can store pieces of code.\n// You declare a variable using the keyword, var.\n// Try storing a string in a variable.\n\n// example: var greeting = \'Hello World\';'
+      },
       theme: 'tomorrow_night_eighties'
     };
   },
@@ -31,7 +42,13 @@ const App = React.createClass({
   },
 
   handleReplChange(newValue, replName) {
-    const jString = JSON.stringify(newValue);
+    const nextSnippet = JSON.stringify(newValue);
+
+    const nextSnippets = Object.assign({}, this.state.snippets, {
+      [replName]: newValue
+    });
+
+    this.setState({ snippets: nextSnippets });
   },
 
   handleSlideIndex(value) {
@@ -63,6 +80,7 @@ const App = React.createClass({
         pages: this.state.pages,
         profileStatus: this.state.profileStatus,
         slideIndex: this.state.slideIndex,
+        snippets: this.state.snippets,
         theme: this.state.theme
       })}
     </div>;
