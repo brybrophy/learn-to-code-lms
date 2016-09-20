@@ -13,6 +13,7 @@ const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 
 const app = express();
+const passport = require('passport');
 
 app.disable('x-powered-by');
 
@@ -28,25 +29,36 @@ switch (app.get('env')) {
   default:
 }
 
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+
+passport.deserializeUser((obj, done) => {
+  done(null, obj);
+});
+
 app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-//CSRF protection
-// app.use('/api', (req, res, next) => {
-//   if (/json/.test(req.get('Accept'))) {
-//     return next();
-//   }
-//
-//   res.sendStatus(406);
-// });
+// CSRF protection
+app.use('/api', (req, res, next) => {
+  if (/json/.test(req.get('Accept'))) {
+    return next();
+  }
+
+  res.sendStatus(406);
+});
 
 const users = require('./routes/users');
 const auth = require('./routes/auth');
 
 app.use('/api', users);
-app.use('/api', auth);
+app.use('/auth', auth);
 
 app.use((_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));

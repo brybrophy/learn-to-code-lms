@@ -216,6 +216,13 @@ select {
   letter-spacing: 4px;
 }
 
+.example {
+  background-color: #F2F7F3;
+  border-radius: 2px;
+  display: block;
+  padding: 5px 10px;
+}
+
 .fastForward {
   align-items: center;
   background-color: #222222;
@@ -545,7 +552,11 @@ select {
   border-radius: 2px;
   margin-top: -20px;
   min-height: 50px;
-  padding: 0 20px;
+  padding: 15px 0 10px 20px;
+}
+
+.output:last-of-type {
+  margin-bottom: 75px;
 }
 
 .play {
@@ -726,7 +737,7 @@ select {
 
 .tabs {
   flex: 1 auto;
-  margin: 12px 25vw;
+  margin: 12px 20vw;
 }
 
 .textarea {

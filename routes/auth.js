@@ -8,28 +8,30 @@ const knex = require('../knex');
 const boom = require('boom');
 const { camelizeKeys } = require('humps');
 
-const jwt = require('jsonwebtoken');
-
 const passport = require('passport');
-const MeetupStrategy = require('passport-meetup-oauth2').Strategy;
+const OAuth2Strategy = require('passport-oauth2');
 
-passport.use(new MeetupStrategy({
+const strategy = new OAuth2Strategy({
+    authorizationURL: '	https://secure.meetup.com/oauth2/authorize',
+    tokenURL: 'https://secure.meetup.com/oauth2/access',
+    scope: 'ageless',
     clientID: process.env.MEETUP_KEY,
     clientSecret: process.env.MEETUP_SECRET,
     callbackURL: "http://localhost:8000/auth/meetup/callback"
-  }, function (accessToken, refreshToken, profile, done) {
-    return profile;
-}));
-
-router.get('/login/meetup', passport.authenticate('meetup'));
-
-router.get('/login/meetup/callback', passport.authenticate('meetup', {
-  failureRedirect: '/login'
-}), (req, res) => {
-    res.redirect('/');
+  }, (accessToken, refreshToken, profile, done) => {
+    done(null, {});
 });
 
-router.get('/logout', function(req, res){
+passport.use(strategy);
+
+router.get('/meetup', passport.authenticate('oauth2'));
+
+router.get('/meetup/callback', passport.authenticate('oauth2', {
+  failureRedirect: '/login',
+  successRedirect: '/',
+}));
+
+router.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/');
 });

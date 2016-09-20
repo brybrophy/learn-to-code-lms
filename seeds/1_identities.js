@@ -9,6 +9,7 @@ exports.seed = function(knex) {
         user_id: 1,
         provider_id: 'abc123',
         provider_token: 'rockin_robin',
+        provider_ref_token: 'free_willy',
         provider_type: 'meetup',
         created_at: new Date('2016-07-23 14:26:16 UTC'),
         updated_at: new Date('2016-07-23 14:26:16 UTC')

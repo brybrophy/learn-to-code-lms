@@ -1,11 +1,12 @@
 import Nav from 'components/Nav';
 import React from 'react';
+import axios from 'axios';
 import { browserHistory } from 'react-router';
 
 const App = React.createClass({
   getInitialState() {
     return {
-      loggedIn: true,
+      loggedIn: false,
       pages: {
         home: 0,
         html: 1,
@@ -17,15 +18,17 @@ const App = React.createClass({
       profileStatus: 1,
       slideIndex: null,
       snippets: {
-        combineExersice: '// You can combine variables just like numbers in JavaScript. Below, declare\n// 2 strings as two different varibles. Then combine the 2 variables together.\n// See if you can figure this one out without an example.\n\n// HINT: You\'ll need to figure out how to add a space between the 2 variables.',
-
         helloWorld: '\'use strict\';\n\nfunction helloWorld() {\n  return \'Hello world\';\n}\n\nhelloWorld();',
 
-        numberExersice: '// Numbers in javascript work just like numbers in\n\// the real world. Try doing some basic math below.\n\n// example: 1 + 1',
+        functionJs: '// Functions are a way of telling JavaScript to perform one or many actions.\n// Write a simple function that divides a number by 2.\n\n// example: function divideByTwo() {\n// return [Your Code Here]\n\n// divideByTwo()}',
 
-        stringExersice: '// In JavaScript, code written inside of quotes is called a string.\n// Type your name in quotes, then type a semi-colon.\n//\n// example: \'Bill Murray\';',
+        functionJsTwo: '// Functions are most useful when we pass arguments into them. Once you create a\n// function, you pass in arguments through it\'s parameters and it produces an output.\n// Given the same arguments again, the function will always return the same output.\n// Write a function that takes in two numbers and multiplies them.\n\n// example: function multiply([PARAMETER 1], [PARAMETER 2]) {\n//   return [Your Code Here]\n// }\n\n// multiply([ARGUMENT 1], [ARGUMENT 2])',
 
-        varExersice: '// Variables are places where you can store pieces of code.\n// You declare a variable using the keyword, var.\n// Try storing a string in a variable.\n\n// example: var greeting = \'Hello World\';'
+        numberJs: '// Numbers in javascript work just like numbers in\n\// the real world. Try doing some basic math below.\n\n// example: 1 + 1',
+
+        stringJs: '// In JavaScript, code written inside of quotes is called a string.\n// Type your name in quotes, then type a semi-colon.\n//\n// example: \'Bill Murray\';',
+
+        varJs: '// Variables are places where you can store pieces of code.\n// You declare a variable using the keyword, var.\n// Try storing a string in a variable.\n\n// example: var greeting = \'Hello World\';\n\n// greeting;'
       },
       theme: 'tomorrow_night_eighties'
     };

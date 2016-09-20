@@ -11,6 +11,7 @@ exports.up = function(knex) {
       .index();
     table.string('provider_id').notNullable().defaultTo('');
     table.string('provider_token').notNullable().defaultTo('');
+    table.string('provider_ref_token').notNullable().defaultTo('');
     table.string('provider_type').notNullable().defaultTo('');
     table.timestamps(true, true);
   });

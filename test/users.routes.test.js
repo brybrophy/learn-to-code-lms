@@ -40,6 +40,7 @@ suite('Users Routes', () => {
         avatarUrl: 'https://a248.e.akamai.net/secure.meetupstatic.com/photos/member/8/1/d/9/highres_19053241.jpeg', // eslint-disable-line max-len
         providerId: "abc123",
         providerToken: "rockin_robin",
+        providerRefToken: 'free_willy',
         providerType: "meetup",
         userId: 1
       })

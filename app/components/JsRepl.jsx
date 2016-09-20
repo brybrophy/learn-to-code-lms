@@ -46,7 +46,7 @@ const JsRepl = React.createClass({
       if (result.error) {
         console.error(result.error);
       }
-      
+
       if (result.data === 'undefined') {
         const results = document.getElementById(this.props.resultName);
 
@@ -72,7 +72,7 @@ const JsRepl = React.createClass({
         editorProps={{$blockScrolling: true}}
         fontSize={16}
         maxLines={Infinity}
-        minLines={10}
+        minLines={this.props.minLines}
         mode="javascript"
         name={this.props.replName}
         onChange={this.handleChange}
@@ -101,7 +101,7 @@ const JsRepl = React.createClass({
 
       <p>result:</p>
       <div className="output">
-        <pre className="result" id={this.props.resultName}></pre>
+        <code className="result" id={this.props.resultName}></code>
       </div>
 
     </section>
