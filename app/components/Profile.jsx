@@ -9,7 +9,7 @@ const Profile = React.createClass({
 
   render() {
 
-    const bio = "I am web developer by trade and a creator in essence. Whether through code, through a camera, or though sound, the creation of “things” is my driving force."
+    // const bio = "I am web developer by trade and a creator in essence. Whether through code, through a camera, or though sound, the creation of “things” is my driving force."
 
     let ProfileMain;
 
@@ -17,12 +17,6 @@ const Profile = React.createClass({
       ProfileMain = <main className="mainProfile">
         <div>
           <img className="avatarProfile" src="/images/avatar-photo.png" />
-          <img
-            className="editIcon"
-            id="2"
-            onTouchTap={this.handleTouchTap}
-            src="/images/edit.svg"
-          />
         </div>
         <section className="profileGroup nonEdit">
           <label>name </label>
@@ -30,25 +24,25 @@ const Profile = React.createClass({
 
           <label>email </label>
           <p className="profileInfo">bbrophy@highseas.com</p>
-
-          <label>bio </label>
-          <p className="profileInfo">I am web developer by trade and a creator in essence. Whether through code, through a camera, or though sound, the creation of “things” is my driving force.</p>
         </section>
+        <img
+          className="editIcon"
+          id="2"
+          onTouchTap={this.handleTouchTap}
+          src="/images/edit.svg"
+        />
       </main>
     }
 
     if (this.props.profileStatus === 2) {
       ProfileMain = <main className="mainProfile">
-        <img className="avatarProfile" src="/images/avatar-photo.png" />
+        <img src="/images/avatar-photo.png"/>
         <form className="profileGroup">
-          <label htmlFor="name">name </label>
+          <label className="labelEdit" htmlFor="name">name </label>
           <input name="name" type="text" defaultValue="Bryan Brophy"/>
 
-          <label htmlFor="email">email </label>
+          <label className="labelEdit" htmlFor="email">email </label>
           <input name="email" type="email" defaultValue="bbrophy@highseas.com"/>
-
-          <label htmlFor="bio">bio </label>
-          <div className="textarea" contentEditable>I am web developer by trade and a creator in essence. Whether through code, through a camera, or though sound, the creation of “things” is my driving force.</div>
         </form>
         <div className="btnGroup">
           <a

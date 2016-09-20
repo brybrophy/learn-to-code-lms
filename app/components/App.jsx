@@ -6,7 +6,7 @@ import { browserHistory } from 'react-router';
 const App = React.createClass({
   getInitialState() {
     return {
-      loggedIn: false,
+      loggedIn: true,
       pages: {
         home: 0,
         html: 1,
@@ -15,7 +15,6 @@ const App = React.createClass({
         git: 4,
         about: 5
       },
-      profileStatus: 1,
       slideIndex: null,
       snippets: {
         helloWorld: '\'use strict\';\n\nfunction helloWorld() {\n  return \'Hello world\';\n}\n\nhelloWorld();',
@@ -38,10 +37,6 @@ const App = React.createClass({
     browserHistory.push('/login');
 
     this.setState({ slideIndex: null });
-  },
-
-  handleProfileStatus(value) {
-    return this.setState({ profileStatus: value });
   },
 
   handleReplChange(newValue, replName) {
@@ -75,13 +70,11 @@ const App = React.createClass({
 
       {React.cloneElement(this.props.children, {
         handleLoginPage: this.handleLoginPage,
-        handleProfileStatus: this.handleProfileStatus,
         handleReplChange: this.handleReplChange,
         handleSlideIndex: this.handleSlideIndex,
         handleThemeChange: this.handleThemeChange,
         loggedIn: this.state.loggedIn,
         pages: this.state.pages,
-        profileStatus: this.state.profileStatus,
         slideIndex: this.state.slideIndex,
         snippets: this.state.snippets,
         theme: this.state.theme

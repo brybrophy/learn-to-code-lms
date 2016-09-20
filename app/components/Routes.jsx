@@ -14,7 +14,7 @@ import Home from 'components/Home';
 import Html from 'components/Html';
 import Js from 'components/Js';
 import Login from 'components/Login';
-import Profile from 'components/Profile';
+import Logout from 'components/Logout';
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
@@ -38,7 +38,7 @@ const Routes = React.createClass({
         <Route component={Html} path="html" />
         <Route component={Js} path="javascript" />
         <Route component={Login} path="login" />
-        <Route component={Profile} path="profile" />
+        <Route component={Logout} path="logout" />
       </Route>
     </Router>;
   }

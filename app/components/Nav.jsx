@@ -10,9 +10,9 @@ const Nav = React.createClass({
       return browserHistory.push('/login');
     }
 
-    browserHistory.push('/profile');
+    this.props.handleSlideIndex(null);
 
-    return this.props.handleSlideIndex(null);
+    return browserHistory.push('/logout');
   },
 
   handleTouchTapLogin() {
@@ -89,10 +89,6 @@ const Nav = React.createClass({
     const menu = document.getElementsByClassName('menu')[0];
     const sideMenu = document.getElementsByClassName('sideMenu')[0];
     const sideMenuWrap = document.getElementsByClassName('sideMenuWrapper')[0];
-
-    if (event.target.id = 'profile') {
-      browserHistory.push('/profile');
-    }
 
     for (const page in pages) {
       if (index === 0) {
@@ -213,15 +209,6 @@ const Nav = React.createClass({
       <div className="sideMenuWrapper">
         <aside className="sideMenu">
           {loginOrLogout}
-
-          <a
-            className="sideNav"
-            id="profile"
-            onTouchTap={this.handleTouchTapSideNav}
-          >
-            <img className="sideNavIcon" src="/images/settings.svg" />
-            PROFILE
-          </a>
 
           <a
             className="sideNav"
