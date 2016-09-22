@@ -89,20 +89,23 @@ router.get('/meetup/callback', passport.authenticate('meetup', {
 
               return knex('identities')
                 .update(updateRow, '*')
-                .where('user_id', users.id);
+                .where('provider_id', providerId);
             }
           });
+      })
+      .then((identities) => {
+        res.cookie('userId', identities[0].user_id);
+        res.cookie('loggedIn', 'true');
+        res.redirect('/');
       })
       .catch((err) => {
         next(err);
       });
-
-    res.cookie('loggedIn', 'true');
-    res.redirect('/');
 });
 
 router.get('/logout', (req, res) => {
   req.logout();
+  res.cookie('userId', '');
   res.cookie('loggedIn', 'false');
   res.redirect('/');
 });

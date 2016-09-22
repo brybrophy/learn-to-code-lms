@@ -7,6 +7,7 @@ import cookie from 'react-cookie';
 const App = React.createClass({
   getInitialState() {
     return {
+      avatarUrl: '',
       loggedIn: cookie.load('loggedIn'),
       pages: {
         home: 0,
@@ -43,8 +44,16 @@ const App = React.createClass({
         browserHistory.push(`/${page}`);
       }
     }
-    
+
     cookie.remove('lessonIndex');
+
+    axios.get(`/api/users/${cookie.load('userId')}`)
+      .then((res) => {
+        this.setState({ avatarUrl: res.data.providerAvatar});
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   },
 
   handleLessonIndex(index) {
@@ -58,6 +67,10 @@ const App = React.createClass({
   },
 
   handleLoginState(boolean) {
+    if (!boolean) {
+      return this.setState({ avatarUrl: '', loggedIn: boolean });
+    }
+
     this.setState({ loggedIn: boolean });
   },
 
@@ -84,6 +97,7 @@ const App = React.createClass({
   render() {
     return <div>
       <Nav
+        avatarUrl={this.state.avatarUrl}
         handleSlideIndex={this.handleSlideIndex}
         loggedIn={this.state.loggedIn}
         pages={this.state.pages}

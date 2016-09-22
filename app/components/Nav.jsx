@@ -127,7 +127,6 @@ const Nav = React.createClass({
       id="logout"
       onTouchTap={this.handleTouchTapLogin}
     >
-      <img className="sideNavIcon" src="/images/log-out.svg" />
       LOGOUT
     </a>;
 
@@ -137,9 +136,23 @@ const Nav = React.createClass({
         id="login"
         onTouchTap={this.handleTouchTapLogin}
       >
-        <img className="sideNavIcon" src="/images/log-in.svg" />
         SIGNUP / LOGIN
       </a>;
+    }
+
+    let avatar = <div
+      className="avatar hideSm"
+      onTouchTap={this.handleTouchTapAvatar}
+    >
+      <img className="avatarLogo" src="images/avatar.png" />
+    </div>;
+
+    if (this.props.avatarUrl) {
+      avatar = <img
+        className="avatarImg hideSm"
+        onTouchTap={this.handleTouchTapAvatar}
+        src={this.props.avatarUrl}
+      />;
     }
 
 
@@ -197,9 +210,8 @@ const Nav = React.createClass({
         />
       </Tabs>
 
-      <div className="avatar hideSm" onTouchTap={this.handleTouchTapAvatar}>
-        <img className="avatarImg" src="images/avatar.png" />
-      </div>
+      {avatar}
+
       <div
         className="menu hideLg"
         id="menu"

@@ -133,14 +133,23 @@ select {
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  height: 30px;
+  height: 40px;
   justify-content: center;
   margin: 16px 65px 0 0;
-  width: 30px;
+  width: 40px;
   z-index: 1000;
 }
 
 .avatarImg {
+  border-radius: 100px;
+  cursor: pointer;
+  height: 50px;
+  margin: 11px 60px 0 0;
+  width: 50px;
+  z-index: 1000;
+}
+
+.avatarLogo {
   height: 65%;
   width: 65%;
 }
