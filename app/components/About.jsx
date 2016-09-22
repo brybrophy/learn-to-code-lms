@@ -1,4 +1,7 @@
+import Time from 'react-time';
 import React from 'react';
+import axios from 'axios';
+import cookie from 'react-cookie';
 
 const About = React.createClass({
   componentWillMount() {
@@ -8,6 +11,12 @@ const About = React.createClass({
   handleTouchTap() {
     this.props.handleSlideIndex(null);
     this.props.handleLoginPage();
+  },
+
+  handleRegister(event) {
+    const url = `http://www.meetup.com/Learn-Code-Seattle/events/${event.target.id}`;
+    const options = 'height=590,left=50,location=0,menubar=0,toolbar=0,top=100,width=1000';
+    window.open(url, '_blank', options);
   },
 
   render() {
@@ -33,24 +42,32 @@ const About = React.createClass({
       </section>
       <section className="mainContent events">
         <h3 className="eventsHeader">Upcoming Classes</h3>
-        <div className="event">
-          <h4 className="eventHeader">Intro to HTML and CSS</h4>
-          <p className="eventInfo">@ Galvanize, Seattle</p>
-          <p className="eventInfo">September 19th</p>
-          <p className="eventInfo">6:30 PM</p>
-          <a className="registerLink" href="#">REGISTER</a>
+        {this.props.events.map((event, index) => {
+          return <div className="event" key={index}>
+            <h4 className="eventHeader">{event.name}</h4>
+            <p
+              className="eventInfo"
+            >@
+              {' ' + event.venue.address_1 + ', ' + event.venue.city}
+            </p>
+            <p className="eventInfo">
+              <Time format="MMMM Do" value={event.time} />
+            </p>
+            <p className="eventInfo">
+              <Time format="h:mm a" value={event.time} />
+            </p>
+            <a
+              className="registerLink"
+              href="#"
+              id={event.id}
+              onTouchTap={this.handleRegister}
+            >
+              REGISTER
+            </a>
 
-          <br />
-        </div>
-        <div className="event">
-          <h4 className="eventHeader">Intro to HTML and CSS</h4>
-          <p className="eventInfo">@ Galvanize, Seattle</p>
-          <p className="eventInfo">September 19th</p>
-          <p className="eventInfo">6:30 PM</p>
-          <a className="registerLink" href="#">REGISTER</a>
-
-          <br />
-        </div>
+            <br />
+          </div>
+        })}
         <p className="eventInfo">
           See more on
           <a

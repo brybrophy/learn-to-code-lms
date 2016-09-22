@@ -16,7 +16,8 @@ const strategy = new MeetupStrategy({
     clientID: process.env.MEETUP_KEY,
     clientSecret: process.env.MEETUP_SECRET,
     callbackURL: "http://localhost:8000/auth/meetup/callback",
-    autoGenerateUsername: true
+    autoGenerateUsername: true,
+    scope: ['basic', 'rsvp']
   }, (accessToken, refreshToken, profile, done) => {
     return done(null, { profile, accessToken, refreshToken });
 });
@@ -34,7 +35,7 @@ router.get('/meetup/callback', passport.authenticate('meetup', {
   failureRedirect: '/login' }), (req, res, next) => {
     const meetupUsername = req.user.profile.username;
     const name = req.user.profile._json.name;
-    const providerAvatar = req.user.profile._json.photo.highres_link;
+    const providerAvatar = req.user.profile._json.photo.thumb_link;
     const providerId = req.user.profile.id;
     const providerRefToken = req.user.refreshToken;
     const providerType = req.user.profile.provider;
@@ -94,6 +95,7 @@ router.get('/meetup/callback', passport.authenticate('meetup', {
           });
       })
       .then((identities) => {
+        res.cookie('providerId', identities[0].provider_id);
         res.cookie('userId', identities[0].user_id);
         res.cookie('loggedIn', 'true');
         res.redirect('/');
@@ -103,10 +105,21 @@ router.get('/meetup/callback', passport.authenticate('meetup', {
       });
 });
 
+router.get('/meetup/events', (req, res, next) => {
+  request('https://api.meetup.com/Learn-Code-Seattle/events?&sign=true&photo-host=public&page=2')
+    .then((events) => {
+      res.send(events)
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 router.get('/logout', (req, res) => {
   req.logout();
-  res.cookie('userId', '');
-  res.cookie('loggedIn', 'false');
+  res.clearCookie('providerId');
+  res.clearCookie('userId');
+  res.clearCookie('loggedIn');
   res.redirect('/');
 });
 

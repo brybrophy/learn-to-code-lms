@@ -46,6 +46,7 @@
     "react-router": "^2.8.1",
     "react-router-transitions": "^2.1.0",
     "react-tap-event-plugin": "^1.0.0",
+    "react-time": "^4.2.0",
     "replit-client": "^0.6.1",
     "request-promise": "^4.1.1",
     "sass-brunch": "^2.6.3",

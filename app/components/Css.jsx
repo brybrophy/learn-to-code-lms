@@ -1,3 +1,4 @@
+import NoLesson from 'components/NoLesson';
 import React from 'react';
 import TourView from 'components/TourView';
 import { browserHistory } from 'react-router';
@@ -35,6 +36,7 @@ const Css = React.createClass({
           </p>
         </section>
         {tourView}
+        {this.props.loggedIn ? <NoLesson /> : ''}
       </main>
     </div>;
   }

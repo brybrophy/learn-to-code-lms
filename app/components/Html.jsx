@@ -1,3 +1,4 @@
+import NoLesson from 'components/NoLesson';
 import React from 'react';
 import TourView from 'components/TourView';
 import { browserHistory } from 'react-router';
@@ -35,8 +36,8 @@ const Html = React.createClass({
           <strong className="regular">HyperText Markup Language</strong> (HTML) is the standard language used to create webpages. Anytime you see a webpage in a browser, HTML is the language telling the browser what content to put on the screen. If a webpage had a human anatomy, HTML would be the skeleton.
           </p>
         </section>
-
         {tourView}
+        {this.props.loggedIn ? <NoLesson /> : ''}
       </main>
     </div>;
   }

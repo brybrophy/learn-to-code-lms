@@ -8,6 +8,7 @@ const App = React.createClass({
   getInitialState() {
     return {
       avatarUrl: '',
+      events: [],
       loggedIn: cookie.load('loggedIn'),
       pages: {
         home: 0,
@@ -47,9 +48,19 @@ const App = React.createClass({
 
     cookie.remove('lessonIndex');
 
-    axios.get(`/api/users/${cookie.load('userId')}`)
+    if (cookie.load('userId')) {
+      axios.get(`/api/users/${cookie.load('userId')}`)
       .then((res) => {
         this.setState({ avatarUrl: res.data.providerAvatar});
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+    }
+
+    axios.get('/auth/meetup/events')
+      .then((res) => {
+        this.setState({ events: res.data });
       })
       .catch((err) => {
         console.error(err);
@@ -105,6 +116,7 @@ const App = React.createClass({
       />
 
       {React.cloneElement(this.props.children, {
+        events: this.state.events,
         handleLessonIndex: this.handleLessonIndex,
         handleLoginPage: this.handleLoginPage,
         handleLoginState: this.handleLoginState,

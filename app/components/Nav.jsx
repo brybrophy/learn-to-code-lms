@@ -37,11 +37,9 @@ const Nav = React.createClass({
   },
 
   handleTouchTapMenu() {
+    const authBtnLogout = document.getElementsByClassName('authBtnLogout')[0];
     const authBtnMeetup = document.getElementsByClassName('authBtnMeetup')[0];
-    const cancelBtn = document.getElementsByClassName('cancelBtn')[0];
-    const editIcon = document.getElementsByClassName('editIcon')[0];
     const menu = document.getElementsByClassName('menu')[0];
-    const saveBtn = document.getElementsByClassName('saveBtn')[0];
     const sideMenu = document.getElementsByClassName('sideMenu')[0];
     const sideMenuWrap = document.getElementsByClassName('sideMenuWrapper')[0];
 
@@ -50,13 +48,8 @@ const Nav = React.createClass({
         authBtnMeetup.style.zIndex = '1100';
       }
 
-      if (editIcon) {
-        editIcon.style.zIndex = '1100';
-      }
-
-      if (saveBtn) {
-        cancelBtn.style.zIndex = '1100';
-        saveBtn.style.zIndex = '1100';
+      if (authBtnLogout) {
+        authBtnLogout.style.sIndex = '1100';
       }
 
       menu.className = 'menu hideLg';
@@ -70,13 +63,8 @@ const Nav = React.createClass({
         authBtnMeetup.style.zIndex = '0';
       }
 
-      if (editIcon) {
-        editIcon.style.zIndex = '0';
-      }
-
-      if (saveBtn) {
-        cancelBtn.style.zIndex = '0';
-        saveBtn.style.zIndex = '0';
+      if (authBtnLogout) {
+        authBtnLogout.style.zIndex = '0';
       }
 
       menu.className += ' open';
@@ -122,17 +110,23 @@ const Nav = React.createClass({
   },
 
   render() {
-    let loginOrLogout = <a
-      className="sideNav"
-      id="logout"
-      onTouchTap={this.handleTouchTapLogin}
-    >
-      LOGOUT
-    </a>;
+    let loginOrLogout = <div>
+      <img
+        className="avatarImgSide"
+        src={this.props.avatarUrl}
+      />
+      <a
+        className="sideNav colorNav"
+        id="logout"
+        onTouchTap={this.handleTouchTapLogin}
+      >
+        LOGOUT
+      </a>
+    </div>;
 
     if (!this.props.loggedIn) {
       loginOrLogout = <a
-        className="sideNav"
+        className="sideNav colorNav login"
         id="login"
         onTouchTap={this.handleTouchTapLogin}
       >
@@ -222,7 +216,7 @@ const Nav = React.createClass({
         <span></span>
       </div>
 
-      <div className="sideMenuWrapper">
+      <div className="sideMenuWrapper" onTouchTap={this.handleBorderClick}>
         <aside className="sideMenu">
           {loginOrLogout}
 

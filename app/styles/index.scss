@@ -149,6 +149,15 @@ select {
   z-index: 1000;
 }
 
+.avatarImgSide {
+  border-radius: 100px;
+  height: 50px;
+  margin: 20px 0 10px 0;
+  width: 50px;
+  z-index: 1000;
+}
+
+
 .avatarLogo {
   height: 65%;
   width: 65%;
@@ -187,6 +196,10 @@ select {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.colorNav {
+  color: #47B4E0;
 }
 
 .editIcon {
@@ -395,6 +408,12 @@ select {
   line-height: 37px;
 }
 
+.lessonHeaderNo {
+  font-size: 2rem;
+  line-height: 37px;
+  margin-top: 10px;
+}
+
 .lessonLogin a {
   color: #47B4E0;
   cursor: pointer;
@@ -411,6 +430,10 @@ select {
   width: 75%;
 }
 
+.lessonSectionCenter {
+  text-align: center;
+}
+
 .lessonStarter {
   color: #4E4E4E;
   font-family: 'MontserratLight';
@@ -418,6 +441,10 @@ select {
   line-height: 37px;
   text-align: center;
   width: 65%;
+}
+
+.login {
+  margin-top: 70px;
 }
 
 .loggedInMargin {
@@ -773,12 +800,6 @@ select {
   font-family: 'MontserratLight';
   margin-bottom: 15px;
   padding: 10px 0;
-}
-
-.sideNav:first-child {
-  color: #47B4E0;
-  margin-left: -11px;
-  margin-top: 70px;
 }
 
 .sideNav:hover {
