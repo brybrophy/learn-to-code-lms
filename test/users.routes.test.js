@@ -36,11 +36,11 @@ suite('Users Routes', () => {
         id: 1,
         name: 'Bryan Brophy',
         email: 'brybrophy@gmail.com',
-        bio: 'The man with the plan.',
-        avatarUrl: 'https://a248.e.akamai.net/secure.meetupstatic.com/photos/member/8/1/d/9/highres_19053241.jpeg', // eslint-disable-line max-len
+        meetupUsername: '123',
         providerId: "abc123",
         providerToken: "rockin_robin",
         providerRefToken: 'free_willy',
+        providerAvatar: 'https://a248.e.akamai.net/secure.meetupstatic.com/photos/member/8/1/d/9/highres_19053241.jpeg', // eslint-disable-line max-len
         providerType: "meetup",
         userId: 1
       })
@@ -56,8 +56,7 @@ suite('Users Routes', () => {
         id: 2,
         name: 'Amber Brophy',
         email: 'amberb37@gmail.com',
-        bio: 'The woman with the plan.',
-        avatarUrl: 'https://a248.e.akamai.net/secure.meetupstatic.com/photos/member/8/1/d/9/highres_19053241.jpeg' // eslint-disable-line max-len
+        meetupUsername: '456'
       })
       .expect((res) => {
         delete res.body.createdAt;
@@ -67,8 +66,7 @@ suite('Users Routes', () => {
         id: 2,
         name: 'Amber Brophy',
         email: 'amberb37@gmail.com',
-        bio: 'The woman with the plan.',
-        avatarUrl: 'https://a248.e.akamai.net/secure.meetupstatic.com/photos/member/8/1/d/9/highres_19053241.jpeg' // eslint-disable-line max-len
+        meetupUsername: '456'
       })
       .expect('Content-Type', /json/)
       .end(done);

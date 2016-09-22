@@ -12,6 +12,7 @@ exports.up = function(knex) {
     table.string('provider_id').notNullable().defaultTo('');
     table.string('provider_token').notNullable().defaultTo('');
     table.string('provider_ref_token').notNullable().defaultTo('');
+    table.string('provider_avatar').notNullable().defaultTo('');
     table.string('provider_type').notNullable().defaultTo('');
     table.timestamps(true, true);
   });

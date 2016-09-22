@@ -15,7 +15,7 @@ const Nav = React.createClass({
     return browserHistory.push('/logout');
   },
 
-  handleTouchTapLogin() {
+  handleTouchTapLogin(event) {
     const menu = document.getElementsByClassName('menu')[0];
     const sideMenu = document.getElementsByClassName('sideMenu')[0];
     const sideMenuWrap = document.getElementsByClassName('sideMenuWrapper')[0];
@@ -25,7 +25,11 @@ const Nav = React.createClass({
     sideMenuWrap.style.zIndex = '0';
     sideMenuWrap.style.borderLeft = '';
 
-    browserHistory.push('/login')
+    if (event.target.id === 'login') {
+      return browserHistory.push('/login');
+    }
+
+    browserHistory.push('/logout');
   },
 
   handleTouchTapLogo() {
@@ -120,7 +124,7 @@ const Nav = React.createClass({
   render() {
     let loginOrLogout = <a
       className="sideNav"
-      id="login"
+      id="logout"
       onTouchTap={this.handleTouchTapLogin}
     >
       <img className="sideNavIcon" src="/images/log-out.svg" />

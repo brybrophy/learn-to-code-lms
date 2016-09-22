@@ -16,8 +16,9 @@ const Html = React.createClass({
 
     if (!this.props.loggedIn) {
       tourView = <TourView
-        onHandleTouchTap={this.handleTouchTap}
         handleLoginPage={this.props.handleLoginPage}
+        onHandleTouchTap={this.handleTouchTap}
+        slideIndex={this.props.slideIndex}
       />
     }
 

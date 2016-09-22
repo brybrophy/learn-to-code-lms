@@ -203,6 +203,26 @@ select {
   width: 25%;
 }
 
+.eventBtn {
+  align-items: center;
+  background-color: #222222;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  height: 90px;
+  justify-content: center;
+  width: 90px;
+}
+
+.eventContainer {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  z-index: 100000;
+}
+
 .eventHeader {
   color: #444444;
   font-family: 'Montserrat';
@@ -389,6 +409,10 @@ select {
   line-height: 37px;
   text-align: center;
   width: 65%;
+}
+
+.loggedInMargin {
+  margin-left: 10%;
 }
 
 .main {

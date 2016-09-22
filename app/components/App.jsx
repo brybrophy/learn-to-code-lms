@@ -2,11 +2,12 @@ import Nav from 'components/Nav';
 import React from 'react';
 import axios from 'axios';
 import { browserHistory } from 'react-router';
+import cookie from 'react-cookie';
 
 const App = React.createClass({
   getInitialState() {
     return {
-      loggedIn: true,
+      loggedIn: cookie.load('loggedIn'),
       pages: {
         home: 0,
         html: 1,
@@ -33,10 +34,31 @@ const App = React.createClass({
     };
   },
 
+  componentWillMount() {
+    const lesson = cookie.load('lessonIndex');
+    const pages = this.state.pages;
+
+    for (const page in pages) {
+      if (lesson === pages[page]) {
+        browserHistory.push(`/${page}`);
+      }
+    }
+    
+    cookie.remove('lessonIndex');
+  },
+
+  handleLessonIndex(index) {
+    this.setState({ lessonIndex: index });
+  },
+
   handleLoginPage() {
     browserHistory.push('/login');
 
     this.setState({ slideIndex: null });
+  },
+
+  handleLoginState(boolean) {
+    this.setState({ loggedIn: boolean });
   },
 
   handleReplChange(newValue, replName) {
@@ -50,7 +72,7 @@ const App = React.createClass({
   },
 
   handleSlideIndex(value) {
-    return this.setState({ slideIndex: value });
+    this.setState({ slideIndex: value });
   },
 
   handleThemeChange(value) {
@@ -69,10 +91,13 @@ const App = React.createClass({
       />
 
       {React.cloneElement(this.props.children, {
+        handleLessonIndex: this.handleLessonIndex,
         handleLoginPage: this.handleLoginPage,
+        handleLoginState: this.handleLoginState,
         handleReplChange: this.handleReplChange,
         handleSlideIndex: this.handleSlideIndex,
         handleThemeChange: this.handleThemeChange,
+        lessonIndex: this.state.lessonIndex,
         loggedIn: this.state.loggedIn,
         pages: this.state.pages,
         slideIndex: this.state.slideIndex,

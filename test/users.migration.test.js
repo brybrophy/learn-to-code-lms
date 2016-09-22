@@ -43,14 +43,7 @@ suite('Users Migration', () => {
             defaultValue: '\'\'::character varying'
           },
 
-          bio: {
-            type: 'text',
-            maxLength: null,
-            nullable: false,
-            defaultValue: '\'\'::text'
-          },
-
-          avatar_url: {
+          meetup_username: {
             type: 'character varying',
             maxLength: 255,
             nullable: false,

@@ -57,6 +57,13 @@ suite('Identities Migration', () => {
             defaultValue: '\'\'::character varying'
           },
 
+          provider_avatar: {
+            type: 'character varying',
+            maxLength: 255,
+            nullable: false,
+            defaultValue: '\'\'::character varying'
+          },
+
           provider_type: {
             type: 'character varying',
             maxLength: 255,

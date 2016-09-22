@@ -14,13 +14,9 @@ module.exports.post = {
       .label('Email')
       .max(63)
       .trim(),
-    bio: Joi.string()
-      .label('Bio')
-      .trim(),
-    avatarUrl: Joi.string()
-      .label('Avatar URL')
-      .min(7)
+    meetupId: Joi.string()
+      .label('Meetup Id')
+      .max(63)
       .trim()
-      .uri()
   }
 };

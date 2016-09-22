@@ -18,6 +18,7 @@ const Git = React.createClass({
       tourView = <TourView
         onHandleTouchTap={this.handleTouchTap}
         handleLoginPage={this.props.handleLoginPage}
+        slideIndex={this.props.slideIndex}
       />
     }
 

@@ -35,18 +35,18 @@ router.get('/users/:id', (req, res, next) => {
 });
 
 router.post('/users', ev(validations.post), (req, res, next) => {
-  const { name, email, bio, avatarUrl } = req.body;
+  const { name, email, meetupUsername } = req.body;
 
   knex('users')
     .select(knex.raw('1=1'))
-    .where('email', email)
+    .where('meetup_username', meetupUsername)
     .first()
     .then((exists) => {
       if (exists) {
-        throw boom.create(409, 'Email already exists');
+        throw boom.create(409, 'User already exists');
       }
 
-      return decamelizeKeys({ name, email, bio, avatarUrl });
+      return decamelizeKeys({ name, email, meetupUsername });
     })
     .then((row) => knex('users').insert(row, '*'))
     .then((results) => {

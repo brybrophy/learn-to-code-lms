@@ -3,7 +3,8 @@ import { browserHistory } from 'react-router';
 
 const Logout = React.createClass({
   handleLogout() {
-    browserHistory.push('/');
+    this.props.handleLoginState(false);
+    window.location.href = '/auth/logout';
   },
 
   render() {

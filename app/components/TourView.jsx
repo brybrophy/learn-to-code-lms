@@ -1,6 +1,12 @@
 import React from 'react';
+import cookie from 'react-cookie';
 
 const TourView = React.createClass({
+  handleTouchTap() {
+    cookie.save('lessonIndex', this.props.slideIndex);
+    this.props.handleLoginPage();
+  },
+
   render() {
     return <section className="tourView">
       <div className="fastForwardContainer"
@@ -13,7 +19,7 @@ const TourView = React.createClass({
         </div>
       </div>
       <div className="lessonLogin">
-        <h5 onTouchTap={this.props.handleLoginPage}>
+        <h5 onTouchTap={this.handleTouchTap}>
           <a>Create an account</a> or <a>login</a> to view full lesson
         </h5>
       </div>

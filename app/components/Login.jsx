@@ -3,6 +3,7 @@ import { withRouter } from 'react-router';
 
 const Login = React.createClass({
   handleLogin() {
+    this.props.handleLoginState(true);
     window.location.href = '/auth/meetup';
   },
 
