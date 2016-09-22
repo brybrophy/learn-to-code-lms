@@ -33,9 +33,11 @@ suite('Snippets Seeds', () => {
       .then((actual) => {
         const expected = [{
           id: 1,
-          lesson_id: 1,
-          code: '["sample code here"]',
-          type: 'javascript',
+          user_id: 1,
+          snippet: '["sample snippet here"]',
+          snippet_type: 'javascript',
+          snippet_name: 'helloWorld',
+          lesson_name: 'javascript',
           created_at: new Date('2016-07-23 14:26:16 UTC'),
           updated_at: new Date('2016-07-23 14:26:16 UTC')
         }];

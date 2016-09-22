@@ -29,21 +29,35 @@ suite('Snippets Migration', () => {
             defaultValue: 'nextval(\'snippets_id_seq\'::regclass)'
           },
 
-          lesson_id: {
+          user_id: {
             type: 'integer',
             maxLength: null,
             nullable: false,
             defaultValue: null
           },
 
-          code: {
+          snippet: {
             type: 'text',
             maxLength: null,
             nullable: false,
             defaultValue: '\'\'::text'
           },
 
-          type: {
+          snippet_type: {
+            type: 'character varying',
+            maxLength: 255,
+            nullable: false,
+            defaultValue: '\'\'::character varying'
+          },
+
+          snippet_name: {
+            type: 'character varying',
+            maxLength: 255,
+            nullable: false,
+            defaultValue: '\'\'::character varying'
+          },
+
+          lesson_name: {
             type: 'character varying',
             maxLength: 255,
             nullable: false,

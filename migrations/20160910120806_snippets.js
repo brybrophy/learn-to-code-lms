@@ -3,14 +3,16 @@
 exports.up = function(knex) {
   return knex.schema.createTable('snippets', (table) => {
     table.increments();
-    table.integer('lesson_id')
+    table.integer('user_id')
       .notNullable()
       .references('id')
-      .inTable('lessons')
+      .inTable('users')
       .onDelete('CASCADE')
       .index();
-    table.text('code').notNullable().defaultTo('');
-    table.string('type').notNullable().defaultTo('');
+    table.text('snippet').notNullable().defaultTo('');
+    table.string('snippet_type').notNullable().defaultTo('');
+    table.string('snippet_name').notNullable().defaultTo('');
+    table.string('lesson_name').notNullable().defaultTo('');
     table.timestamps(true, true);
   });
 };
