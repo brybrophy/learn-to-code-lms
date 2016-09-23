@@ -197,6 +197,9 @@ const JsLesson = React.createClass({
           [then do this other thing];<br />
         {'}'}
       </code>
+      <h3 className="lessonHeaderNo">
+        (This lesson has not been fully written. We hope you have enjoied it so far and are excited finish the rest of the  lesson soon!)
+      </h3>
     </article>
   }
 });
