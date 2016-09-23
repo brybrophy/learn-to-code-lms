@@ -41,10 +41,11 @@ const Js = React.createClass({
 
     return <div>
       <Snackbar
-        open={this.props.snackbar}
-        message="Auto Saved"
         autoHideDuration={3000}
+        bodyStyle={{ backgroundColor: '#2D2D2D' }}
+        message="Auto Saved"
         onRequestClose={this.props.handleRequestClose}
+        open={this.props.snackbar}
       />
 
       <section className="heroImg jsHero">

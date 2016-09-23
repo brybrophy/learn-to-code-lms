@@ -77,23 +77,23 @@ const App = React.createClass({
       .catch((err) => {
         console.error(err);
       });
-    }
 
-    const getEvents = function() {
-      return axios.get('/auth/meetup/events');
-    };
-
-    const getSnippets = function() {
-      return axios.get(`/api/snippets/${cookie.load('userId')}`);
-    };
-
-    axios.all([getEvents(), getSnippets()])
-      .then(axios.spread((events, snippets) => {
-        this.setState({ events: events.data, snippets:  snippets.data });
-      }))
+      axios.get(`/api/snippets/${cookie.load('userId')}`)
+      .then((res) => {
+        this.setState({ snippets: res.data });
+      })
       .catch((err) => {
         console.error(err);
       });
+    }
+
+    axios.get('/auth/meetup/events')
+    .then((res) => {
+      this.setState({ events: res.data });
+    })
+    .catch((err) => {
+      console.error(err);
+    });
   },
 
   handleLessonIndex(index) {

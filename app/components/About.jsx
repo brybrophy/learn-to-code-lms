@@ -47,8 +47,8 @@ const About = React.createClass({
             <h4 className="eventHeader">{event.name}</h4>
             <p
               className="eventInfo"
-            >@
-              {' ' + event.venue.address_1 + ', ' + event.venue.city}
+            >
+              {event.venue ? '@ ' + event.venue.address_1 + ', ' + event.venue.city : ''}
             </p>
             <p className="eventInfo">
               <Time format="MMMM Do" value={event.time} />
