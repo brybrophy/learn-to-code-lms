@@ -56,9 +56,11 @@ app.use('/api', (req, res, next) => {
 
 const users = require('./routes/users');
 const auth = require('./routes/auth');
+const snippets = require('./routes/snippets');
 
 app.use('/api', users);
 app.use('/auth', auth);
+app.use('/api', snippets);
 
 app.use((_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));

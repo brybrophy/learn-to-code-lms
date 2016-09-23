@@ -31,6 +31,7 @@ const Js = React.createClass({
         handleReplChange={this.props.handleReplChange}
         handleThemeChange={this.props.handleThemeChange}
         snippets={this.props.snippets}
+        snippets={this.props.snippets}
         theme={this.props.theme}
       />
     }

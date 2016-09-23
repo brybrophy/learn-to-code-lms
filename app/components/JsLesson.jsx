@@ -21,7 +21,7 @@ const JsLesson = React.createClass({
 
       <JsRepl
         handleReplChange={this.props.handleReplChange}
-        initialValue={this.props.snippets.helloWorld}
+        initialValue={this.props.snippets.helloWorld.snippet}
         minLines={10}
         replName="helloWorld"
         resultName="themeResult"
@@ -63,7 +63,7 @@ const JsLesson = React.createClass({
 
         <JsRepl
           handleReplChange={this.props.handleReplChange}
-          initialValue={this.props.snippets.stringJs}
+          initialValue={this.props.snippets.stringsJs.snippet}
           minLines={7}
           replName="stringJs"
           resultName="stringResult"
@@ -76,7 +76,7 @@ const JsLesson = React.createClass({
 
       <JsRepl
         handleReplChange={this.props.handleReplChange}
-        initialValue={this.props.snippets.numberJs}
+        initialValue={this.props.snippets.numberJs.snippet}
         minLines={7}
         replName="numberJs"
         resultName="numberResult"
@@ -88,7 +88,7 @@ const JsLesson = React.createClass({
 
       <JsRepl
         handleReplChange={this.props.handleReplChange}
-        initialValue={this.props.snippets.varJs}
+        initialValue={this.props.snippets.varJs.snippet}
         minLines={10}
         replName="varJs"
         resultName="varResult"
@@ -100,7 +100,7 @@ const JsLesson = React.createClass({
 
       <JsRepl
         handleReplChange={this.props.handleReplChange}
-        initialValue={this.props.snippets.functionJs}
+        initialValue={this.props.snippets.functionJs.snippet}
         minLines={10}
         replName="functionJs"
         resultName="functionResult"
@@ -112,7 +112,7 @@ const JsLesson = React.createClass({
 
       <JsRepl
         handleReplChange={this.props.handleReplChange}
-        initialValue={this.props.snippets.functionJsTwo}
+        initialValue={this.props.snippets.functionJs.snippet}
         minLines={13}
         replName="functionJsTwo"
         resultName="functionResultTwo"

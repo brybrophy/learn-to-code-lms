@@ -19,19 +19,7 @@ const App = React.createClass({
         about: 5
       },
       slideIndex: null,
-      snippets: {
-        helloWorld: '\'use strict\';\n\nfunction helloWorld() {\n  return \'Hello world\';\n}\n\nhelloWorld();',
-
-        functionJs: '// Functions are a way of telling JavaScript to perform one or many actions.\n// Write a simple function that divides a number by 2.\n\n// example: function divideByTwo() {\n// return [Your Code Here]\n\n// divideByTwo()}',
-
-        functionJsTwo: '// Functions are most useful when we pass arguments into them. Once you create a\n// function, you pass in arguments through it\'s parameters and it produces an output.\n// Given the same arguments again, the function will always return the same output.\n// Write a function that takes in two numbers and multiplies them.\n\n// example: function multiply([PARAMETER 1], [PARAMETER 2]) {\n//   return [Your Code Here]\n// }\n\n// multiply([ARGUMENT 1], [ARGUMENT 2])',
-
-        numberJs: '// Numbers in javascript work just like numbers in\n\// the real world. Try doing some basic math below.\n\n// example: 1 + 1',
-
-        stringJs: '// In JavaScript, code written inside of quotes is called a string.\n// Type your name in quotes, then type a semi-colon.\n//\n// example: \'Bill Murray\';',
-
-        varJs: '// Variables are places where you can store pieces of code.\n// You declare a variable using the keyword, var.\n// Try storing a string in a variable.\n\n// example: var greeting = \'Hello World\';\n\n// greeting;'
-      },
+      snippets: {},
       theme: 'tomorrow_night_eighties'
     };
   },
@@ -58,10 +46,18 @@ const App = React.createClass({
       });
     }
 
-    axios.get('/auth/meetup/events')
-      .then((res) => {
-        this.setState({ events: res.data });
-      })
+    const getEvents = function() {
+      return axios.get('/auth/meetup/events');
+    };
+
+    const getSnippets = function() {
+      return axios.get(`/api/snippets/${cookie.load('userId')}`);
+    };
+
+    axios.all([getEvents(), getSnippets()])
+      .then(axios.spread((events, snippets) => {
+        this.setState({ events: events.data, snippets:  snippets.data });
+      }))
       .catch((err) => {
         console.error(err);
       });
