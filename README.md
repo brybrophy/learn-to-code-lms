@@ -38,3 +38,11 @@ Learn To Code is currently geared towards the intro classes and students. It is 
 * React
 * Redux
 * SASS
+
+### What was the biggest technical challenge?
+
+I was challenged by by many nested api calls. I spent a lot of time learning how to properly link up axios calls on the client to routes on my server, and then passing the proper data back in the response.
+
+I also swore off grid systems at the beginning of this project and decided to create my entire layout with flexbox and media queries. I put a lot of effort into making a very responsive layout.
+
+
