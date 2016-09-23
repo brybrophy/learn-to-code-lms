@@ -1,5 +1,6 @@
 import JsLesson from 'components/JsLesson';
 import React from 'react';
+import Snackbar from 'material-ui/Snackbar';
 import TourView from 'components/TourView';
 import { browserHistory } from 'react-router';
 
@@ -39,6 +40,13 @@ const Js = React.createClass({
     }
 
     return <div>
+      <Snackbar
+        open={this.props.snackbar}
+        message="Auto Saved"
+        autoHideDuration={3000}
+        onRequestClose={this.props.handleRequestClose}
+      />
+
       <section className="heroImg jsHero">
         <h1 className="heroText jsHeroText">Java</h1>
         <h1 className="heroText jsHeroText">Script</h1>

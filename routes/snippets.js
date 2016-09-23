@@ -51,14 +51,13 @@ router.patch('/snippets/:userId', (req, res, next) => {
 
   for (let snippet of nextSnippets) {
     const row = decamelizeKeys(snippet);
-    console.log(row);
 
     knex('snippets')
       .update(row, '*')
       .where('user_id', row.user_id)
       .where('snippet_name', row.snippet_name)
       .then((result) => {
-        res.send(result[0]);
+        res.send('Save Successful');
       })
       .catch((err) => {
         next(err);

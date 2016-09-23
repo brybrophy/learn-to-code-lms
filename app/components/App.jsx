@@ -19,6 +19,7 @@ const App = React.createClass({
         about: 5
       },
       slideIndex: null,
+      snackbar: false,
       snippets: {
         helloWorld: {
           snippet: '\'use strict\';\n\nfunction helloWorld() {\n  return \'Hello world\';\n}\n\nhelloWorld();',
@@ -127,10 +128,16 @@ const App = React.createClass({
     this.setState({ snippets: nextSnippets, timeout });
   },
 
+  handleRequestClose() {
+    this.setState({ snackbar: false });
+  },
+
   handleSaveSnippets() {
     axios.patch(`/api/snippets/${cookie.load('userId')}`, this.state.snippets)
       .then((res) => {
-        console.log(res.data);
+        if (res.data === 'Save Successful') {
+          this.setState({ snackbar: true });
+        }
       })
       .catch((err) => {
         console.error(err);
@@ -163,6 +170,7 @@ const App = React.createClass({
         handleLoginPage: this.handleLoginPage,
         handleLoginState: this.handleLoginState,
         handleReplChange: this.handleReplChange,
+        handleRequestClose: this.handleRequestClose,
         handleSaveSnippets: this.handleSaveSnippets,
         handleSlideIndex: this.handleSlideIndex,
         handleThemeChange: this.handleThemeChange,
@@ -170,6 +178,7 @@ const App = React.createClass({
         loggedIn: this.state.loggedIn,
         pages: this.state.pages,
         slideIndex: this.state.slideIndex,
+        snackbar: this.state.snackbar,
         snippets: this.state.snippets,
         theme: this.state.theme,
         timeout: this.state.timeout
