@@ -34,4 +34,36 @@ router.get('/snippets/:userId', (req, res, next) => {
     })
 });
 
+router.patch('/snippets/:userId', (req, res, next) => {
+  const { userId } = req.params;
+  const nextSnippets = [];
+  const snippets = req.body;
+
+  for (let snippet in snippets) {
+    const nextSnippet = {
+      userId,
+      snippetName: snippet,
+      snippet: snippets[snippet].snippet
+    }
+
+    nextSnippets.push(nextSnippet);
+  }
+
+  for (let snippet of nextSnippets) {
+    const row = decamelizeKeys(snippet);
+    console.log(row);
+
+    knex('snippets')
+      .update(row, '*')
+      .where('user_id', row.user_id)
+      .where('snippet_name', row.snippet_name)
+      .then((result) => {
+        res.send(result[0]);
+      })
+      .catch((err) => {
+        next(err);
+      });
+  }
+});
+
 module.exports = router;

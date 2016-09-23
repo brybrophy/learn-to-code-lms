@@ -26,18 +26,24 @@ const JsRepl = React.createClass({
 
       })
       .catch((err) => {
-        console.error(err);
+        // console.error(err);
       })
   },
 
   handleChange(newValue) {
-    this.props.handleReplChange(newValue, this.props.replName);
+    window.clearTimeout(this.props.timeout);
+
+    const saveTimer = window.setTimeout(() => {
+      this.props.handleSaveSnippets();
+    }, 3000);
+
+    this.props.handleReplChange(newValue, this.props.replName, saveTimer);
   },
 
   startRepl() {
     const snippet = this.props.replName;
 
-    this.state.repl.evaluate(this.props.snippets[snippet], {
+    this.state.repl.evaluate(this.props.snippets[snippet].snippet, {
       stdout: (str) => {
         console.log(str);
       }

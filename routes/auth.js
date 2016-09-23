@@ -100,7 +100,6 @@ router.get('/meetup/callback', passport.authenticate('meetup', {
                 snippet.userId = userId;
                 const row = decamelizeKeys(snippet);
 
-                // console.log(row);
                 knex('snippets').insert(row, '*')
                   .catch((err) => {
                     next(err);

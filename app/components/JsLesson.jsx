@@ -21,12 +21,14 @@ const JsLesson = React.createClass({
 
       <JsRepl
         handleReplChange={this.props.handleReplChange}
+        handleSaveSnippets={this.props.handleSaveSnippets}
         initialValue={this.props.snippets.helloWorld.snippet}
         minLines={10}
         replName="helloWorld"
         resultName="themeResult"
         snippets={this.props.snippets}
         theme={this.props.theme}
+        timeout={this.props.timeout}
       />
 
       <p>Now that you have choosen your editor theme, let's talk about the objectives for this course.</p>
@@ -63,12 +65,14 @@ const JsLesson = React.createClass({
 
         <JsRepl
           handleReplChange={this.props.handleReplChange}
+          handleSaveSnippets={this.props.handleSaveSnippets}
           initialValue={this.props.snippets.stringsJs.snippet}
           minLines={7}
-          replName="stringJs"
-          resultName="stringResult"
+          replName="stringsJs"
+          resultName="stringsResult"
           snippets={this.props.snippets}
           theme={this.props.theme}
+          timeout={this.props.timeout}
         />
       </section>
 
@@ -76,48 +80,56 @@ const JsLesson = React.createClass({
 
       <JsRepl
         handleReplChange={this.props.handleReplChange}
+        handleSaveSnippets={this.props.handleSaveSnippets}
         initialValue={this.props.snippets.numberJs.snippet}
         minLines={7}
         replName="numberJs"
         resultName="numberResult"
         snippets={this.props.snippets}
         theme={this.props.theme}
+        timeout={this.props.timeout}
       />
 
       <p className="replHeader">3. Variables</p>
 
       <JsRepl
         handleReplChange={this.props.handleReplChange}
+        handleSaveSnippets={this.props.handleSaveSnippets}
         initialValue={this.props.snippets.varJs.snippet}
         minLines={10}
         replName="varJs"
         resultName="varResult"
         snippets={this.props.snippets}
         theme={this.props.theme}
+        timeout={this.props.timeout}
       />
 
       <p className="replHeader">4. Functions</p>
 
       <JsRepl
         handleReplChange={this.props.handleReplChange}
+        handleSaveSnippets={this.props.handleSaveSnippets}
         initialValue={this.props.snippets.functionJs.snippet}
         minLines={10}
         replName="functionJs"
         resultName="functionResult"
         snippets={this.props.snippets}
         theme={this.props.theme}
+        timeout={this.props.timeout}
       />
 
       <p className="replHeader">5. Functions with Arguments</p>
 
       <JsRepl
         handleReplChange={this.props.handleReplChange}
+        handleSaveSnippets={this.props.handleSaveSnippets}
         initialValue={this.props.snippets.functionJs.snippet}
         minLines={13}
         replName="functionJsTwo"
         resultName="functionResultTwo"
         snippets={this.props.snippets}
         theme={this.props.theme}
+        timeout={this.props.timeout}
       />
 
       <h3 className="lessonHeader">

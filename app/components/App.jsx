@@ -19,8 +19,40 @@ const App = React.createClass({
         about: 5
       },
       slideIndex: null,
-      snippets: {},
-      theme: 'tomorrow_night_eighties'
+      snippets: {
+        helloWorld: {
+          snippet: '\'use strict\';\n\nfunction helloWorld() {\n  return \'Hello world\';\n}\n\nhelloWorld();',
+          snippetType: 'javascript',
+          lessonName: 'javascript'
+        },
+        functionJs: {
+          snippet: '// Functions are a way of telling JavaScript to perform one or many actions.\n// Write a simple function that divides a number by 2.\n\n// example: function divideByTwo() {\n// return [Your Code Here]\n\n// divideByTwo()}',
+          snippetType: 'comment',
+          lessonName: 'javascript'
+        },
+        functionJsTwo: {
+          snippet: '// Functions are a way of telling JavaScript to perform one or many actions.\n// Write a simple function that divides a number by 2.\n\n// example: function divideByTwo() {\n// return [Your Code Here]\n\n// divideByTwo()}',
+          snippetType: 'comment',
+          lessonName: 'javascript'
+        },
+        numberJs: {
+          snippet: '// Numbers in javascript work just like numbers in\n\// the real world. Try doing some basic math below.\n\n// example: 1 + 1',
+          snippetType: 'comment',
+          lessonName: 'javascript'
+        },
+        stringsJs: {
+          snippet: '// In JavaScript, code written inside of quotes is called a string.\n// Type your name in quotes, then type a semi-colon.\n//\n// example: \'Bill Murray\';',
+          snippetType: 'comment',
+          lessonName: 'javascript'
+        },
+        varJs: {
+          snippet: '// Variables are places where you can store pieces of code.\n// You declare a variable using the keyword, var.\n// Try storing a string in a variable.\n\n// example: var greeting = \'Hello World\';\n\n// greeting;',
+          snippetType: 'comment',
+          lessonName: 'javascript'
+        }
+      },
+      theme: 'tomorrow_night_eighties',
+      timeout: null
     };
   },
 
@@ -81,14 +113,28 @@ const App = React.createClass({
     this.setState({ loggedIn: boolean });
   },
 
-  handleReplChange(newValue, replName) {
-    const nextSnippet = JSON.stringify(newValue);
+  handleReplChange(newValue, replName, timeout) {
+    const oldSnippet = this.state.snippets[replName];
 
-    const nextSnippets = Object.assign({}, this.state.snippets, {
-      [replName]: newValue
+    const nextSnippet = Object.assign({}, oldSnippet, {
+      snippet: newValue
     });
 
-    this.setState({ snippets: nextSnippets });
+    const nextSnippets = Object.assign({}, this.state.snippets, {
+      [replName]: nextSnippet
+    });
+
+    this.setState({ snippets: nextSnippets, timeout });
+  },
+
+  handleSaveSnippets() {
+    axios.patch(`/api/snippets/${cookie.load('userId')}`, this.state.snippets)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      })
   },
 
   handleSlideIndex(value) {
@@ -117,6 +163,7 @@ const App = React.createClass({
         handleLoginPage: this.handleLoginPage,
         handleLoginState: this.handleLoginState,
         handleReplChange: this.handleReplChange,
+        handleSaveSnippets: this.handleSaveSnippets,
         handleSlideIndex: this.handleSlideIndex,
         handleThemeChange: this.handleThemeChange,
         lessonIndex: this.state.lessonIndex,
@@ -124,7 +171,8 @@ const App = React.createClass({
         pages: this.state.pages,
         slideIndex: this.state.slideIndex,
         snippets: this.state.snippets,
-        theme: this.state.theme
+        theme: this.state.theme,
+        timeout: this.state.timeout
       })}
     </div>;
   }
