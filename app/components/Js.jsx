@@ -29,9 +29,11 @@ const Js = React.createClass({
 
     if (this.props.loggedIn) {
       lessonView = <JsLesson
+        handleCreateRepl={this.props.handleCreateRepl}
         handleReplChange={this.props.handleReplChange}
         handleSaveSnippets={this.props.handleSaveSnippets}
         handleThemeChange={this.props.handleThemeChange}
+        replitAccess={this.props.replitAccess}
         snippets={this.props.snippets}
         snippets={this.props.snippets}
         theme={this.props.theme}

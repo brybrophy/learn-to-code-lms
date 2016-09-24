@@ -21,6 +21,7 @@ const JsRepl = React.createClass({
   },
 
   componentWillMount() {
+    // const repl = this.props.handleCreateRepl()
     this.state.repl.connect()
       .then(() => {
 
@@ -28,6 +29,8 @@ const JsRepl = React.createClass({
       .catch((err) => {
         // console.error(err);
       })
+
+      // this.setState({ repl });
   },
 
   handleChange(newValue) {

@@ -18,6 +18,10 @@ const App = React.createClass({
         git: 4,
         about: 5
       },
+      replitAccess: {
+        replitHash: '',
+        replitTime: ''
+      },
       slideIndex: null,
       snackbar: false,
       snippets: {
@@ -72,7 +76,13 @@ const App = React.createClass({
     if (cookie.load('userId')) {
       axios.get(`/api/users/${cookie.load('userId')}`)
       .then((res) => {
-        this.setState({ avatarUrl: res.data.providerAvatar});
+        this.setState({
+          avatarUrl: res.data.providerAvatar,
+          replitAccess: {
+            replitHash: res.data.replitHash,
+            replitTime: res.data.replitTime
+          }
+        });
       })
       .catch((err) => {
         console.error(err);
@@ -93,6 +103,13 @@ const App = React.createClass({
     })
     .catch((err) => {
       console.error(err);
+    });
+  },
+
+  handleCreateRepl() {
+    return new ReplitClient('api.repl.it', '80', 'nodejs', {
+      time_created: this.state.replitAccess.replitTime,
+      msg_mac: this.state.replitAccess.replitHash
     });
   },
 
@@ -166,6 +183,7 @@ const App = React.createClass({
 
       {React.cloneElement(this.props.children, {
         events: this.state.events,
+        handleCreateRepl: this.handleCreateRepl,
         handleLessonIndex: this.handleLessonIndex,
         handleLoginPage: this.handleLoginPage,
         handleLoginState: this.handleLoginState,
@@ -177,6 +195,7 @@ const App = React.createClass({
         lessonIndex: this.state.lessonIndex,
         loggedIn: this.state.loggedIn,
         pages: this.state.pages,
+        replitAccess: this.state.replitAccess,
         slideIndex: this.state.slideIndex,
         snackbar: this.state.snackbar,
         snippets: this.state.snippets,

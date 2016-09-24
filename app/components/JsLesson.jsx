@@ -20,11 +20,13 @@ const JsLesson = React.createClass({
       />
 
       <JsRepl
+        handleCreateRepl={this.props.handleCreateRepl}
         handleReplChange={this.props.handleReplChange}
         handleSaveSnippets={this.props.handleSaveSnippets}
         initialValue={this.props.snippets.helloWorld.snippet}
         minLines={10}
         replName="helloWorld"
+        replitAccess={this.props.replitAccess}
         resultName="themeResult"
         snippets={this.props.snippets}
         theme={this.props.theme}
@@ -64,11 +66,13 @@ const JsLesson = React.createClass({
         <p className="replHeader">1. Strings</p>
 
         <JsRepl
+          handleCreateRepl={this.props.handleCreateRepl}
           handleReplChange={this.props.handleReplChange}
           handleSaveSnippets={this.props.handleSaveSnippets}
           initialValue={this.props.snippets.stringsJs.snippet}
           minLines={7}
           replName="stringsJs"
+          replitAccess={this.props.replitAccess}
           resultName="stringsResult"
           snippets={this.props.snippets}
           theme={this.props.theme}
@@ -79,11 +83,13 @@ const JsLesson = React.createClass({
       <p className="replHeader">2. Numbers</p>
 
       <JsRepl
+        handleCreateRepl={this.props.handleCreateRepl}
         handleReplChange={this.props.handleReplChange}
         handleSaveSnippets={this.props.handleSaveSnippets}
         initialValue={this.props.snippets.numberJs.snippet}
         minLines={7}
         replName="numberJs"
+        replitAccess={this.props.replitAccess}
         resultName="numberResult"
         snippets={this.props.snippets}
         theme={this.props.theme}
@@ -93,11 +99,13 @@ const JsLesson = React.createClass({
       <p className="replHeader">3. Variables</p>
 
       <JsRepl
+        handleCreateRepl={this.props.handleCreateRepl}
         handleReplChange={this.props.handleReplChange}
         handleSaveSnippets={this.props.handleSaveSnippets}
         initialValue={this.props.snippets.varJs.snippet}
         minLines={10}
         replName="varJs"
+        replitAccess={this.props.replitAccess}
         resultName="varResult"
         snippets={this.props.snippets}
         theme={this.props.theme}
@@ -107,11 +115,13 @@ const JsLesson = React.createClass({
       <p className="replHeader">4. Functions</p>
 
       <JsRepl
+        handleCreateRepl={this.props.handleCreateRepl}
         handleReplChange={this.props.handleReplChange}
         handleSaveSnippets={this.props.handleSaveSnippets}
         initialValue={this.props.snippets.functionJs.snippet}
         minLines={10}
         replName="functionJs"
+        replitAccess={this.props.replitAccess}
         resultName="functionResult"
         snippets={this.props.snippets}
         theme={this.props.theme}
@@ -121,11 +131,13 @@ const JsLesson = React.createClass({
       <p className="replHeader">5. Functions with Arguments</p>
 
       <JsRepl
+        handleCreateRepl={this.props.handleCreateRepl}
         handleReplChange={this.props.handleReplChange}
         handleSaveSnippets={this.props.handleSaveSnippets}
         initialValue={this.props.snippets.functionJs.snippet}
         minLines={13}
         replName="functionJsTwo"
+        replitAccess={this.props.replitAccess}
         resultName="functionResultTwo"
         snippets={this.props.snippets}
         theme={this.props.theme}
