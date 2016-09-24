@@ -6,6 +6,8 @@ exports.up = function(knex) {
     table.string('name').notNullable().defaultTo('');
     table.string('email').notNullable().defaultTo('');
     table.string('meetup_username').notNullable().defaultTo('');
+    table.string('replit_hash').notNullable().defaultTo('');
+    table.string('replit_time').notNullable().defaultTo('');
     table.timestamps(true, true);
   });
 };

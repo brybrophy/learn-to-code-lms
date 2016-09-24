@@ -50,6 +50,20 @@ suite('Users Migration', () => {
             defaultValue: '\'\'::character varying'
           },
 
+          replit_hash: {
+            type: 'character varying',
+            maxLength: 255,
+            nullable: false,
+            defaultValue: '\'\'::character varying'
+          },
+
+          replit_time: {
+            type: 'character varying',
+            maxLength: 255,
+            nullable: false,
+            defaultValue: '\'\'::character varying'
+          },
+
           created_at: {
             type: 'timestamp with time zone',
             maxLength: null,

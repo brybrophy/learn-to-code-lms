@@ -37,36 +37,14 @@ suite('Users Routes', () => {
         name: 'Bryan Brophy',
         email: 'brybrophy@gmail.com',
         meetupUsername: '123',
+        replitHash: 'qnR8UCqJggD55PohusaBNviGoOJ67HC6Btry4qXLVZc= ',
+        replitTime: '1474689904921',
         providerId: "abc123",
         providerToken: "rockin_robin",
         providerRefToken: 'free_willy',
         providerAvatar: 'https://a248.e.akamai.net/secure.meetupstatic.com/photos/member/8/1/d/9/highres_19053241.jpeg', // eslint-disable-line max-len
         providerType: "meetup",
         userId: 1
-      })
-      .expect('Content-Type', /json/)
-      .end(done);
-  });
-
-  test('POST /api/users', (done) => {
-    supertest(app)
-      .post('/api/users')
-      .set('Accept', 'application/json')
-      .send({
-        id: 2,
-        name: 'Amber Brophy',
-        email: 'amberb37@gmail.com',
-        meetupUsername: '456'
-      })
-      .expect((res) => {
-        delete res.body.createdAt;
-        delete res.body.updatedAt;
-      })
-      .expect(200, {
-        id: 2,
-        name: 'Amber Brophy',
-        email: 'amberb37@gmail.com',
-        meetupUsername: '456'
       })
       .expect('Content-Type', /json/)
       .end(done);

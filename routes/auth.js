@@ -10,7 +10,9 @@ const { camelizeKeys, decamelizeKeys } = require('humps');
 
 const passport = require('passport');
 const MeetupStrategy = require('passport-oauth2-meetup').Strategy;
-var request = require('request-promise');
+const request = require('request-promise');
+
+const CryptoJS = require("crypto-js");
 
 const strategy = new MeetupStrategy({
     clientID: process.env.MEETUP_KEY,
@@ -40,15 +42,22 @@ router.get('/meetup/callback', passport.authenticate('meetup', {
     const providerRefToken = req.user.refreshToken;
     const providerType = req.user.profile.provider;
     const providerToken = req.user.accessToken;
+    const replitTime = Date.now();
+    const hash = CryptoJS.HmacSHA256(replitTime, process.env.REPLIT_KEY);
+    const replitHash = CryptoJS.enc.Base64.stringify(hash);
 
     knex('users')
-      .where('meetup_username', req.user.profile.username)
+      .where('meetup_username', meetupUsername)
       .first()
       .then((result) => {
+        let nextUsers = result;
+
         if (!result) {
           const newUser = {
             meetupUsername,
-            name
+            name,
+            replitHash,
+            replitTime
           };
 
           const userRow = decamelizeKeys(newUser);
@@ -110,7 +119,24 @@ router.get('/meetup/callback', passport.authenticate('meetup', {
             });
         }
 
-        return result;
+        const updateUser = {
+          replitHash,
+          replitTime
+        };
+
+        const row = decamelizeKeys(updateUser);
+
+        knex('users')
+          .update(row, '*')
+          .where('meetup_username', meetupUsername)
+          .then((users) => {
+            return nextUsers = users;
+          })
+          .catch((err) => {
+            next(err);
+          });
+
+        return nextUsers;
       })
       .then((users) => {
         if (users[0]) {
