@@ -22,7 +22,11 @@ module.exports = {
 
   plugins: {
     babel: {
-      presets: ['es2015', 'react']
+      plugins: [
+        "transform-decorators-legacy",
+        "transform-class-properties"
+      ],
+      presets: ['es2015', 'es2016', 'react']
     }
   },
 
