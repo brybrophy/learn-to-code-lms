@@ -42,9 +42,14 @@ router.get('/meetup/callback', passport.authenticate('meetup', {
     const providerRefToken = req.user.refreshToken;
     const providerType = req.user.profile.provider;
     const providerToken = req.user.accessToken;
-    const replitTime = Date.now();
+    const replitTime = Date.now().toString();
     const hash = CryptoJS.HmacSHA256(replitTime, process.env.REPLIT_KEY);
     const replitHash = CryptoJS.enc.Base64.stringify(hash);
+
+    const token = {
+      msg_mac: replitHash,
+      time_created: replitTime
+    }
 
     knex('users')
       .where('meetup_username', meetupUsername)

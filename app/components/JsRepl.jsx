@@ -9,8 +9,8 @@ import 'brace/theme/tomorrow';
 import 'brace/theme/tomorrow_night_eighties';
 
 const access = {
-  time_created :1474480922000,
-  msg_mac: 'CjyBv65scp+xyK7/gFwIpVF0XJu9UoiJp6zZvWhA0V8='
+  time_created :1475103855889,
+  msg_mac: 'Jgc9VGeG+kXWztY8zige9GufX/8OGVxHiwVW10kt3l8='
 };
 
 const JsRepl = React.createClass({
@@ -21,16 +21,13 @@ const JsRepl = React.createClass({
   },
 
   componentWillMount() {
-    // const repl = this.props.handleCreateRepl()
     this.state.repl.connect()
       .then(() => {
 
       })
       .catch((err) => {
-        // console.error(err);
+        console.error(err);
       })
-
-      // this.setState({ repl });
   },
 
   handleChange(newValue) {
