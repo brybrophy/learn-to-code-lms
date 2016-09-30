@@ -1,6 +1,6 @@
-import NoLesson from 'components/NoLesson';
+import NoLesson from '../common/NoLesson';
 import React from 'react';
-import TourView from 'components/TourView';
+import TourView from '../common/TourView';
 import { browserHistory } from 'react-router';
 
 const Git = React.createClass({

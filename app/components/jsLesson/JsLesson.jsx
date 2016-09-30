@@ -1,6 +1,6 @@
-import JsRepl from 'components/JsRepl';
+import JsRepl from './JsRepl';
 import React from 'react';
-import ThemeSelector from 'components/ThemeSelector';
+import ThemeSelector from './ThemeSelector';
 
 const JsLesson = React.createClass({
   render() {

@@ -1,7 +1,7 @@
-import JsLesson from 'components/JsLesson';
+import JsLesson from './JsLesson';
 import React from 'react';
 import Snackbar from 'material-ui/Snackbar';
-import TourView from 'components/TourView';
+import TourView from '../common/TourView';
 import { browserHistory } from 'react-router';
 
 const helloWorld = '"use strict";\n  function helloWorld() {\n  console.log("Hello world");\n}\n\nhelloWorld();';

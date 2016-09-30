@@ -1,11 +1,11 @@
-import Nav from 'components/Nav';
+import Nav from './common/Nav';
 import React from 'react';
 import axios from 'axios';
 import { browserHistory } from 'react-router';
 import { inject, observer } from 'mobx-react';
 import cookie from 'react-cookie';
 
-@inject('appStore')
+@inject('appStore') 
 @observer
 class App extends React.Component {
   // getInitialState() {
@@ -65,7 +65,7 @@ class App extends React.Component {
   // }
 
   componentWillMount() {
-    console.log(this.props);
+    console.log(this.props.appStore.avatarUrl);
     const lesson = cookie.load('lessonIndex');
     const pages = this.state.pages;
 
