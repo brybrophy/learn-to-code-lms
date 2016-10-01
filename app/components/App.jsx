@@ -5,69 +5,17 @@ import { browserHistory } from 'react-router';
 import { inject, observer } from 'mobx-react';
 import cookie from 'react-cookie';
 
-@inject('appStore') 
+import {
+  getEvents,
+  trackSlideIndex
+} from '../actions/appActions';
+
+@inject('appStore')
 @observer
 class App extends React.Component {
-  // getInitialState() {
-  //   return {
-  //     avatarUrl: '',
-  //     events: [],
-  //     loggedIn: cookie.load('loggedIn'),
-  //     pages: {
-  //       home: 0,
-  //       html: 1,
-  //       css: 2,
-  //       javascript: 3,
-  //       git: 4,
-  //       about: 5
-  //     },
-  //     replitAccess: {
-  //       replitHash: '',
-  //       replitTime: ''
-  //     },
-  //     slideIndex: null,
-  //     snackbar: false,
-  //     snippets: {
-  //       helloWorld: {
-  //         snippet: '\'use strict\';\n\nfunction helloWorld() {\n  return \'Hello world\';\n}\n\nhelloWorld();',
-  //         snippetType: 'javascript',
-  //         lessonName: 'javascript'
-  //       },
-  //       functionJs: {
-  //         snippet: '// Functions are a way of telling JavaScript to perform one or many actions.\n// Write a simple function that divides a number by 2.\n\n// example: function divideByTwo() {\n// return [Your Code Here]\n\n// divideByTwo()}',
-  //         snippetType: 'comment',
-  //         lessonName: 'javascript'
-  //       },
-  //       functionJsTwo: {
-  //         snippet: '// Functions are a way of telling JavaScript to perform one or many actions.\n// Write a simple function that divides a number by 2.\n\n// example: function divideByTwo() {\n// return [Your Code Here]\n\n// divideByTwo()}',
-  //         snippetType: 'comment',
-  //         lessonName: 'javascript'
-  //       },
-  //       numberJs: {
-  //         snippet: '// Numbers in javascript work just like numbers in\n\// the real world. Try doing some basic math below.\n\n// example: 1 + 1',
-  //         snippetType: 'comment',
-  //         lessonName: 'javascript'
-  //       },
-  //       stringsJs: {
-  //         snippet: '// In JavaScript, code written inside of quotes is called a string.\n// Type your name in quotes, then type a semi-colon.\n//\n// example: \'Bill Murray\';',
-  //         snippetType: 'comment',
-  //         lessonName: 'javascript'
-  //       },
-  //       varJs: {
-  //         snippet: '// Variables are places where you can store pieces of code.\n// You declare a variable using the keyword, var.\n// Try storing a string in a variable.\n\n// example: var greeting = \'Hello World\';\n\n// greeting;',
-  //         snippetType: 'comment',
-  //         lessonName: 'javascript'
-  //       }
-  //     },
-  //     theme: 'tomorrow_night_eighties',
-  //     timeout: null
-  //   };
-  // }
-
   componentWillMount() {
-    console.log(this.props.appStore.avatarUrl);
     const lesson = cookie.load('lessonIndex');
-    const pages = this.state.pages;
+    const pages = this.props.appStore.pages;
 
     for (const page in pages) {
       if (lesson === pages[page]) {
@@ -80,30 +28,24 @@ class App extends React.Component {
     if (cookie.load('userId')) {
       axios.get(`/api/users/${cookie.load('userId')}`)
       .then((res) => {
-        this.setState({
-          avatarUrl: res.data.providerAvatar,
-          replitAccess: {
-            replitHash: res.data.replitHash,
-            replitTime: res.data.replitTime
-          }
-        });
+        // this.setState({
+        //   avatarUrl: res.data.providerAvatar,
+        //   replitAccess: {
+        //     replitHash: res.data.replitHash,
+        //     replitTime: res.data.replitTime
+        //   }
+        // });
       })
       .catch((err) => {
         console.error(err);
       });
 
-      axios.get(`/api/snippets/${cookie.load('userId')}`)
-      .then((res) => {
-        this.setState({ snippets: res.data });
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+      getEvents();
     }
 
     axios.get('/auth/meetup/events')
     .then((res) => {
-      this.setState({ events: res.data });
+      // this.setState({ events: res.data });
     })
     .catch((err) => {
       console.error(err);
@@ -112,19 +54,19 @@ class App extends React.Component {
 
   handleCreateRepl() {
     return new ReplitClient('api.repl.it', '80', 'nodejs', {
-      time_created: this.state.replitAccess.replitTime,
-      msg_mac: this.state.replitAccess.replitHash
+      time_created: this.props.appStore.replitAccess.replitTime,
+      msg_mac: this.props.appStore.replitAccess.replitHash
     });
   }
 
   handleLessonIndex(index) {
-    this.setState({ lessonIndex: index });
+    // this.setState({ lessonIndex: index });
   }
 
   handleLoginPage() {
     browserHistory.push('/login');
 
-    this.setState({ slideIndex: null });
+    // this.setState({ slideIndex: null });
   }
 
   handleLoginState(boolean) {
@@ -132,32 +74,32 @@ class App extends React.Component {
       return this.setState({ avatarUrl: '', loggedIn: boolean });
     }
 
-    this.setState({ loggedIn: boolean });
+    // this.setState({ loggedIn: boolean });
   }
 
   handleReplChange(newValue, replName, timeout) {
-    const oldSnippet = this.state.snippets[replName];
+    const oldSnippet = this.props.appStore.snippets[replName];
 
     const nextSnippet = Object.assign({}, oldSnippet, {
       snippet: newValue
     });
 
-    const nextSnippets = Object.assign({}, this.state.snippets, {
+    const nextSnippets = Object.assign({}, this.props.appStore.snippets, {
       [replName]: nextSnippet
     });
 
-    this.setState({ snippets: nextSnippets, timeout });
+    // this.setState({ snippets: nextSnippets, timeout });
   }
 
   handleRequestClose() {
-    this.setState({ snackbar: false });
+    // this.setState({ snackbar: false });
   }
 
   handleSaveSnippets() {
-    axios.patch(`/api/snippets/${cookie.load('userId')}`, this.state.snippets)
+    axios.patch(`/api/snippets/${cookie.load('userId')}`, this.props.appStore.snippets)
       .then((res) => {
         if (res.data === 'Save Successful') {
-          this.setState({ snackbar: true });
+          // this.setState({ snackbar: true });
         }
       })
       .catch((err) => {
@@ -166,27 +108,27 @@ class App extends React.Component {
   }
 
   handleSlideIndex(value) {
-    this.setState({ slideIndex: value });
+    trackSlideIndex(value)
   }
 
   handleThemeChange(value) {
     const newTheme = value.replace(/\s+/g, '_').toLowerCase();
 
-    this.setState({ theme: newTheme });
+    // this.setState({ theme: newTheme });
   }
 
   render() {
     return <div>
       <Nav
-        avatarUrl={this.state.avatarUrl}
+        avatarUrl={this.props.appStore.avatarUrl}
         handleSlideIndex={this.handleSlideIndex}
-        loggedIn={this.state.loggedIn}
-        pages={this.state.pages}
-        slideIndex={this.state.slideIndex}
+        loggedIn={this.props.appStore.loggedIn}
+        pages={this.props.appStore.pages}
+        slideIndex={this.props.appStore.slideIndex}
       />
 
       {React.cloneElement(this.props.children, {
-        events: this.state.events,
+        events: this.props.appStore.events,
         handleCreateRepl: this.handleCreateRepl,
         handleLessonIndex: this.handleLessonIndex,
         handleLoginPage: this.handleLoginPage,
@@ -196,15 +138,15 @@ class App extends React.Component {
         handleSaveSnippets: this.handleSaveSnippets,
         handleSlideIndex: this.handleSlideIndex,
         handleThemeChange: this.handleThemeChange,
-        lessonIndex: this.state.lessonIndex,
-        loggedIn: this.state.loggedIn,
-        pages: this.state.pages,
-        replitAccess: this.state.replitAccess,
-        slideIndex: this.state.slideIndex,
-        snackbar: this.state.snackbar,
-        snippets: this.state.snippets,
-        theme: this.state.theme,
-        timeout: this.state.timeout
+        lessonIndex: this.props.appStore.lessonIndex,
+        loggedIn: this.props.appStore.loggedIn,
+        pages: this.props.appStore.pages,
+        replitAccess: this.props.appStore.replitAccess,
+        slideIndex: this.props.appStore.slideIndex,
+        snackbar: this.props.appStore.snackbar,
+        snippets: this.props.appStore.snippets,
+        theme: this.props.appStore.theme,
+        timeout: this.props.appStore.timeout
       })}
     </div>;
   }
