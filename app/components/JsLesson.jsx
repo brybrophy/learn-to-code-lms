@@ -41,7 +41,7 @@ const JsLesson = React.createClass({
         <li>Basic Javascript Syntax</li>
         <li>Variables and Functions</li>
         <li>Conditional statements (if, else if, else)</li>
-        <li>“Rock, Paper, Scissors” - JavaScript style</li>
+        <li>“Choose Your Own Adventure” - JavaScript style</li>
       </ul>
 
       <h3 className="lessonHeader">
