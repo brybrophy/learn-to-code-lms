@@ -235,7 +235,7 @@ const JsLesson = React.createClass({
       </p>
 
       <p>
-        Now that you have the basics down, we ae going to use the sum of your knowledge to build a JavaScript choose your own adventure game. We will make use of some functions that are built into JavaScript to gather input from players as they progress through the game. We will be using an online javascript coding environment called REPLIT to make use of these built in functions. Follow the link below to start coding!
+        Now that you have the basics down, we are going to use the sum of your knowledge to build a JavaScript choose your own adventure game. We will make use of some functions that are built into JavaScript to gather input from players as they progress through the game. We will be using an online javascript coding environment called REPLIT to make use of these built in functions. Follow the link below to start coding!
       </p>
 
       <a href="https://repl.it/EEK8/1">Code Your Own Adventure!</a>
