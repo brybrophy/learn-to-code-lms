@@ -18,9 +18,15 @@
     "test": "mocha"
   },
   "dependencies": {
+    "auto-reload-brunch": "^2.7.1",
     "axios": "^0.14.0",
+    "babel-brunch": "^6.0.6",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
     "body-parser": "^1.15.2",
     "boom": "^4.0.0",
+    "brunch": "^2.8.2",
+    "clean-css-brunch": "^2.0.0",
     "chai": "^3.5.0",
     "cookie-parser": "^1.4.3",
     "cookie-session": "^2.0.0-alpha.1",
@@ -29,6 +35,7 @@
     "express": "^4.14.0",
     "express-validation": "^1.0.1",
     "humps": "^1.1.0",
+    "javascript-brunch": "^2.0.0",
     "joi": "^9.0.4",
     "jsonwebtoken": "^7.1.9",
     "knex": "^0.11.10",
@@ -39,6 +46,7 @@
     "passport-oauth2": "^1.3.0",
     "passport-oauth2-meetup": "^1.1.0",
     "pg": "^6.1.0",
+    "postcss-brunch": "^2.0.1",
     "react": "^15.3.1",
     "react-ace": "^3.5.0",
     "react-addons-css-transition-group": "^15.3.1",
@@ -52,23 +60,15 @@
     "request-promise": "^4.1.1",
     "sass-brunch": "^2.6.3",
     "supertest": "^2.0.0",
+    "uglify-js-brunch": "^2.0.1",
     "weak-key": "^1.0.0"
   },
   "devDependencies": {
-    "auto-reload-brunch": "^2.7.1",
-    "babel-brunch": "^6.0.6",
-    "babel-preset-es2015": "^6.14.0",
-    "babel-preset-react": "^6.11.1",
-    "brunch": "^2.8.2",
-    "clean-css-brunch": "^2.0.0",
     "eslint": "^3.4.0",
     "eslint-config-ryansobol": "^9.1.1",
     "eslint-plugin-react": "^6.2.2",
     "foreman": "^2.0.0",
-    "javascript-brunch": "^2.0.0",
-    "postcss-brunch": "^2.0.1",
-    "surge": "^0.18.0",
-    "uglify-js-brunch": "^2.0.1"
+    "surge": "^0.18.0"
   },
   "engines": {
     "node": "6.4.0"
