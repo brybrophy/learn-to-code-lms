@@ -22,7 +22,7 @@ const About = React.createClass({
   render() {
     let GetStarted;
 
-    if (cookie.load('loggedIn')) {
+    if (!cookie.load('loggedIn')) {
       GetStarted = (
         <a
           className="getStartedBtn"
