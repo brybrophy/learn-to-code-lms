@@ -426,6 +426,7 @@ select {
   font-family: 'MontserratLight';
   font-size: 1.3rem;
   line-height: 37px;
+  padding-bottom: 100px;
   text-align: left;
   width: 75%;
 }
@@ -1163,5 +1164,45 @@ select {
 
   .sideMenuWrapper {
     width: 71%;
+  }
+}
+
+@media (min-height: 750px) {
+  .fastForward {
+    height: 80px;
+    margin-top: 20px;
+    width: 80px;
+  }
+
+  .fastForwardLabel {
+    margin-top: 40px;
+  }
+
+  .lessonLogin {
+    margin-top: 40px;
+  }
+
+  .lessonStarter {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-height: 870px) {
+  .fastForward {
+    height: 100px;
+    margin-top: 80px;
+    width: 100px;
+  }
+
+  .fastForwardLabel {
+    margin-top: 120px;
+  }
+
+  .lessonLogin {
+    margin-top: 110px;
+  }
+
+  .lessonStarter {
+    font-size: 1.4rem;
   }
 }

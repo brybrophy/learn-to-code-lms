@@ -34,7 +34,7 @@ router.get('/snippets/:userId', (req, res, next) => {
     })
 });
 
-router.patch('/snippets/:userId', (req, res, next) => {
+router.put('/snippets/:userId', (req, res, next) => {
   const { userId } = req.params;
   const nextSnippets = [];
   const snippets = req.body;
@@ -57,7 +57,12 @@ router.patch('/snippets/:userId', (req, res, next) => {
       .where('user_id', row.user_id)
       .where('snippet_name', row.snippet_name)
       .then((result) => {
-        res.send('Save Successful');
+        const response = {
+          snippets: result,
+          message: 'Save Successful'
+        };
+
+        res.send(response);
       })
       .catch((err) => {
         next(err);

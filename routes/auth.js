@@ -73,37 +73,43 @@ router.get('/meetup/callback', passport.authenticate('meetup', {
 
               const defaultSnippets = [
                 {
+                  snippet: '',
+                  snippetName: 'conditionalConsole',
+                  snippetType: 'javascript',
+                  lessonName: 'javascript'
+                },
+                {
                   snippet: '\'use strict\';\n\nfunction helloWorld() {\n  return \'Hello world\';\n}\n\nhelloWorld();',
                   snippetName: 'helloWorld',
                   snippetType: 'javascript',
                   lessonName: 'javascript'
                 },
                 {
-                  snippet: '// Functions are a way of telling JavaScript to perform one or many actions.\n// Write a simple function that divides a number by 2.\n\n// example: function divideByTwo() {\n// return [Your Code Here]\n\n// divideByTwo()}',
+                  snippet: '/*Functions are a way of telling JavaScript to perform one or many actions.\nWrite a simple function that divides a number by 2.\n\nexample: function divideByTwo() {\n\n  return [Your Code Here]\n}\n\ndivideByTwo()*/',
                   snippetName: 'functionJs',
                   snippetType: 'comment',
                   lessonName: 'javascript'
                 },
                 {
-                  snippet: '// Functions are a way of telling JavaScript to perform one or many actions.\n// Write a simple function that divides a number by 2.\n\n// example: function divideByTwo() {\n// return [Your Code Here]\n\n// divideByTwo()}',
+                  snippet: '/*Now, take the function above and add an argument called num to the parameters.\nInstead of dividing a number by two, divide the argument by two.\n\nexample: function divideByTwo(num) {\n\n  return [Your Code Here]\n}\n\ndivideByTwo()*/',
                   snippetName: 'functionJsTwo',
                   snippetType: 'comment',
                   lessonName: 'javascript'
                 },
                 {
-                  snippet: '// Numbers in javascript work just like numbers in\n\// the real world. Try doing some basic math below.\n\n// example: 1 + 1',
+                  snippet: '/*Numbers in javascript work just like numbers in\nthe real world. Try doing some basic math below.\n\nexample: 1 + 1*/',
                   snippetName: 'numberJs',
                   snippetType: 'comment',
                   lessonName: 'javascript'
                 },
                 {
-                  snippet: '// In JavaScript, code written inside of quotes is called a string.\n// Type your name in quotes, then type a semi-colon.\n//\n// example: \'Bill Murray\';',
+                  snippet: '/*In JavaScript, code written inside of quotes is called a string.\nType your name in quotes, then type a semi-colon.\n\nexample: \'Bill Murray\';*/',
                   snippetName: 'stringsJs',
                   snippetType: 'comment',
                   lessonName: 'javascript'
                 },
                 {
-                  snippet: '// Variables are places where you can store pieces of code.\n// You declare a variable using the keyword, var.\n// Try storing a string in a variable.\n\n// example: var greeting = \'Hello World\';\n\n// greeting;',
+                  snippet: '/*Variables are places where you can store information.\nYou declare a variable using the keyword, var.\nTry storing a string in a variable.\n\nexample: var greeting = \'Hello World\';\n\ngreeting;*/',
                   snippetName: 'varJs',
                   snippetType: 'comment',
                   lessonName: 'javascript'

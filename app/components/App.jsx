@@ -25,36 +25,13 @@ const App = React.createClass({
       slideIndex: null,
       snackbar: false,
       snippets: {
-        helloWorld: {
-          snippet: '\'use strict\';\n\nfunction helloWorld() {\n  return \'Hello world\';\n}\n\nhelloWorld();',
-          snippetType: 'javascript',
-          lessonName: 'javascript'
-        },
-        functionJs: {
-          snippet: '// Functions are a way of telling JavaScript to perform one or many actions.\n// Write a simple function that divides a number by 2.\n\n// example: function divideByTwo() {\n// return [Your Code Here]\n\n// divideByTwo()}',
-          snippetType: 'comment',
-          lessonName: 'javascript'
-        },
-        functionJsTwo: {
-          snippet: '// Functions are a way of telling JavaScript to perform one or many actions.\n// Write a simple function that divides a number by 2.\n\n// example: function divideByTwo() {\n// return [Your Code Here]\n\n// divideByTwo()}',
-          snippetType: 'comment',
-          lessonName: 'javascript'
-        },
-        numberJs: {
-          snippet: '// Numbers in javascript work just like numbers in\n\// the real world. Try doing some basic math below.\n\n// example: 1 + 1',
-          snippetType: 'comment',
-          lessonName: 'javascript'
-        },
-        stringsJs: {
-          snippet: '// In JavaScript, code written inside of quotes is called a string.\n// Type your name in quotes, then type a semi-colon.\n//\n// example: \'Bill Murray\';',
-          snippetType: 'comment',
-          lessonName: 'javascript'
-        },
-        varJs: {
-          snippet: '// Variables are places where you can store pieces of code.\n// You declare a variable using the keyword, var.\n// Try storing a string in a variable.\n\n// example: var greeting = \'Hello World\';\n\n// greeting;',
-          snippetType: 'comment',
-          lessonName: 'javascript'
-        }
+        helloWorld: {},
+        functionJs: {},
+        functionJsTwo: {},
+        numberJs: {},
+        stringsJs: {},
+        varJs: {},
+        conditionalConsole: {}
       },
       theme: 'tomorrow_night_eighties',
       timeout: null
@@ -64,7 +41,6 @@ const App = React.createClass({
   componentWillMount() {
     const lesson = cookie.load('lessonIndex');
     const pages = this.state.pages;
-
     for (const page in pages) {
       if (lesson === pages[page]) {
         browserHistory.push(`/${page}`);
@@ -90,7 +66,9 @@ const App = React.createClass({
 
       axios.get(`/api/snippets/${cookie.load('userId')}`)
       .then((res) => {
-        this.setState({ snippets: res.data });
+        const nextSnippets = Object.assign(this.state.snippets, res.data);
+
+        return this.setState({ snippets: nextSnippets });
       })
       .catch((err) => {
         console.error(err);
@@ -99,7 +77,7 @@ const App = React.createClass({
 
     axios.get('/auth/meetup/events')
     .then((res) => {
-      this.setState({ events: res.data });
+      return this.setState({ events: res.data });
     })
     .catch((err) => {
       console.error(err);
@@ -150,9 +128,10 @@ const App = React.createClass({
   },
 
   handleSaveSnippets() {
-    axios.patch(`/api/snippets/${cookie.load('userId')}`, this.state.snippets)
+    axios.put(`/api/snippets/${cookie.load('userId')}`, this.state.snippets)
       .then((res) => {
-        if (res.data === 'Save Successful') {
+        console.log(res.data.snippets);
+        if (res.data.message === 'Save Successful') {
           this.setState({ snackbar: true });
         }
       })

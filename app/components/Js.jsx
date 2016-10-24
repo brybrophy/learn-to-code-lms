@@ -35,7 +35,6 @@ const Js = React.createClass({
         handleThemeChange={this.props.handleThemeChange}
         replitAccess={this.props.replitAccess}
         snippets={this.props.snippets}
-        snippets={this.props.snippets}
         theme={this.props.theme}
         timeout={this.props.timeout}
       />

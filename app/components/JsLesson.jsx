@@ -134,7 +134,7 @@ const JsLesson = React.createClass({
         handleCreateRepl={this.props.handleCreateRepl}
         handleReplChange={this.props.handleReplChange}
         handleSaveSnippets={this.props.handleSaveSnippets}
-        initialValue={this.props.snippets.functionJs.snippet}
+        initialValue={this.props.snippets.functionJsTwo.snippet}
         minLines={13}
         replName="functionJsTwo"
         replitAccess={this.props.replitAccess}
@@ -200,18 +200,45 @@ const JsLesson = React.createClass({
 
       <code className="example">
         if (this === true) {'{'}<br />
-          [then do this thing];<br />
+          DO THIS THING;<br />
         {'}'}<br />
         else if (that === true) {'{'}<br />
-          [then do this different thing];<br />
+          DO THIS OTHER THING;<br />
         {'}'}<br />
         else {'{'}<br />
-          [then do this other thing];<br />
+          DO AN ENTIRELY DIFFERENT THING;<br />
         {'}'}
       </code>
-      <h3 className="lessonHeaderNo">
-        (This lesson has not been fully written. We hope you have enjoied it so far and are excited finish the rest of the  lesson soon!)
+
+      <p>Let's try our own example. We are going to write a function that takes in a number and compares it to another number. If the the numbers are equal it will log a message to the console. If the numbers are not equal, it will log a different meassge to the console. You can log anything you want. Bonus points if it is hilarious!</p>
+
+      <JsRepl
+        handleCreateRepl={this.props.handleCreateRepl}
+        handleReplChange={this.props.handleReplChange}
+        handleSaveSnippets={this.props.handleSaveSnippets}
+        initialValue={this.props.snippets.conditionalConsole.snippet}
+        minLines={6}
+        replName="conditionalConsole"
+        replitAccess={this.props.replitAccess}
+        resultName="conditionalResult"
+        snippets={this.props.snippets}
+        theme={this.props.theme}
+        timeout={this.props.timeout}
+      />
+
+      <h3 className="lessonHeader">
+        Sum It All Up
       </h3>
+
+      <p>
+        Guess what! You've learned all of the fundamental JavaScript concepts that we set out to learn today. Take a second to pat yourself on the back. This stuff isn't easy.
+      </p>
+
+      <p>
+        Now that you have the basics down, we ae going to use the sum of your knowledge to build a JavaScript choose your own adventure game. We will make use of some functions that are built into JavaScript to gather input from players as they progress through the game. We will be using an online javascript coding environment called REPLIT to make use of these built in functions. Follow the link below to start coding!
+      </p>
+
+      <a href="https://repl.it/EEK8/1">Code Your Own Adventure!</a>
     </article>
   }
 });

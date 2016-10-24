@@ -9,8 +9,8 @@ import 'brace/theme/tomorrow';
 import 'brace/theme/tomorrow_night_eighties';
 
 const access = {
-  time_created :1476501129162,
-  msg_mac: 'yL5PhUBOCAnn5t4W4rfUxX3sxzlI5h+uVJenAYf6b/Q='
+  time_created :1477263425952,
+  msg_mac: 'yljRNCnmatmA8MeFqcgqT3DL1oNZM9YDfGH+pjOI8JM='
 };
 
 const JsRepl = React.createClass({
@@ -72,7 +72,6 @@ const JsRepl = React.createClass({
   },
 
   render() {
-      console.log(this.props.replitAccess);
     return <section>
       <AceEditor
         className="repl"
