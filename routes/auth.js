@@ -91,7 +91,7 @@ router.get('/meetup/callback', passport.authenticate('meetup', {
                   lessonName: 'javascript'
                 },
                 {
-                  snippet: '/*Now, take the function above and add an argument called num to the parameters.\nInstead of dividing a number by two, divide the argument by two.\n\nexample: function divideByTwo(num) {\n\n  return [Your Code Here]\n}\n\ndivideByTwo()*/',
+                  snippet: '/*Now, take the function above and add an argument called num to the parameters.\nInstead of dividing a number by two, divide the argument by two.\n\nexample: function divideByTwo(num) {\n\n  return [Your Code Here]\n}\n\ndivideByTwo(64)*/',
                   snippetName: 'functionJsTwo',
                   snippetType: 'comment',
                   lessonName: 'javascript'
