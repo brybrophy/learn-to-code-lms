@@ -17,7 +17,7 @@ const CryptoJS = require("crypto-js");
 const strategy = new MeetupStrategy({
     clientID: process.env.MEETUP_KEY,
     clientSecret: process.env.MEETUP_SECRET,
-    callbackURL: "http://localhost:8000/auth/meetup/callback",
+    callbackURL: "https://g-learn-to-code.herokuapp.com/auth/meetup/callback",
     autoGenerateUsername: true,
     scope: ['basic', 'rsvp']
   }, (accessToken, refreshToken, profile, done) => {
